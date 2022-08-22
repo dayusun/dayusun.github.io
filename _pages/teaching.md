@@ -15,5 +15,5 @@ nav_order: 5
 - 2020F, BIOS 522 Survival Analysis Methods, guest lecture
 
 ## University of Missouri
-- 2020S STAT7420 Applied Survival Analysis, guest lecture
+- 2020S, STAT7420 Applied Survival Analysis, guest lecture
 - 2016-2020, STAT1200 Introductory Statistical Reasoning
