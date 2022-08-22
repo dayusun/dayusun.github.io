@@ -25,7 +25,7 @@ My research interests include:
 
 Previously, I obtained my Ph.D. in statistics from University of Missouri, advised by [Dr. Jianguo (Tony) Sun](https://sunj.mufaculty.umsystem.edu/); and earned my [M.Phil.](https://en.wikipedia.org/wiki/Master_of_Philosophy) in statistics from The Hong Kong Polytechinic University, superviosed by Dr. Xingqiu Zhao and Dr. Zhisheng Ye.
 
-<span style="color:red"> **I am looking for a tenure-tracked poisition at statistics/biostatistics departments. Please see my [CV](/cv).** </span>
+<span style="color:red"> **I am looking for a tenure-track poisition at statistics/biostatistics departments. Please see my [CV](/cv).** </span>
 
 <!---
 Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
