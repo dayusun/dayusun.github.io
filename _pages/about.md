@@ -20,8 +20,10 @@ social: true  # includes social icons at the bottom of the page
 I am a postdoctoral fellow in the Department of Biostatistics and Bioinformatics at Emory University, under the supervsion of [Dr. Amita Manatunga](https://sph.emory.edu/faculty/profile/index.php?FID=amita-manatunga-36), [Dr. Limin Peng](https://sph.emory.edu/faculty/profile/index.php?FID=limin-peng-338) and [Dr. Ying Guo](https://www.yingguo.us/).
 My research interests include:
 - high-dimensional [tensor](https://en.wikipedia.org/wiki/Tensor) data analysis with application to multimodal neuroimaging data,
-- joint analysis of complex time-to-event data and intermittently observed longitudinal data,
+- joint analysis of intermittently observed longitudinal data and complex time-to-event data, including right-censored and interval censored survival data, and panel count data,
 - statistical analysis for mental health studies, criminology (collaborated with [Dr. Lin Liu](https://lindyliu0.wixsite.com/linliu/publications) at [FIU](https://www.fiu.edu/)) and clinical trials.
+
+
 
 Previously, I obtained my Ph.D. in statistics from the University of Missouri, advised by [Dr. Jianguo (Tony) Sun](https://sunj.mufaculty.umsystem.edu/); and earned my [M.Phil.](https://en.wikipedia.org/wiki/Master_of_Philosophy) in statistics from The Hong Kong Polytechnic University, supervised by Dr. Xingqiu Zhao and Dr. Zhisheng Ye.
 
