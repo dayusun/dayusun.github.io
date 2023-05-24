@@ -21,7 +21,8 @@ I am a postdoctoral fellow in the Department of Biostatistics and Bioinformatics
 My research interests include:
 - high-dimensional [tensor](https://en.wikipedia.org/wiki/Tensor) data analysis with application to multimodal neuroimaging data,
 - joint analysis of intermittently observed longitudinal data and complex time-to-event data, including right-censored and interval censored survival data, and panel count data,
-- statistical analysis for mental health studies, criminology (collaborated with [Dr. Lin Liu](https://lindyliu0.wixsite.com/linliu/publications) at [FIU](https://www.fiu.edu/)) and clinical trials.
+- statistical analysis for mental health studies, criminology and clinical trials.
+ <!-- (collaborated with [Dr. Lin Liu](https://lindyliu0.wixsite.com/linliu/publications) at [FIU](https://www.fiu.edu/)) and clinical trials. -->
 
 
 
