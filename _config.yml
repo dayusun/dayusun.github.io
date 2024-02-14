@@ -282,9 +282,20 @@ display_categories: ["blockquotes"] # these categories will be displayed on the 
 # -----------------------------------------------------------------------------
 
 scholar:
+<<<<<<< HEAD
 
   last_name: Sun
   first_name: [Dayu]
+=======
+<<<<<<< HEAD
+
+  last_name: Sun
+  first_name: [Dayu]
+=======
+  last_name: [Einstein]
+  first_name: [Albert, A.]
+>>>>>>> author/master
+>>>>>>> 9d36e24712f1537ce99459108e8fdd8d97ccb779
 
   style: apa
   locale: en
