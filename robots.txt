@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://www.sundayu.me//sitemap.xml
+Sitemap: https://www.sundayu.me/sitemap.xml
