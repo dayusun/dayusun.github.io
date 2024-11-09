@@ -14,7 +14,7 @@ profile:
     
 news: false  # includes a list of news items
 latest_posts: false # includes a list of the newest posts
-selected_papers: false # includes a list of papers marked as "selected={true}"
+selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
@@ -30,4 +30,6 @@ My research interests include:
 
 I obtained my Ph.D. in statistics from the University of Missouri, advised by [Dr. Jianguo (Tony) Sun](https://sunj.mufaculty.umsystem.edu/). I earned my [M.Phil.](https://en.wikipedia.org/wiki/Master_of_Philosophy) in statistics from The Hong Kong Polytechnic University, supervised by [Dr. Xingqiu Zhao](https://www.polyu.edu.hk/ama/people/academic-staff/prof-zhao-xingqiu/) and Dr. Zhisheng Ye, and a Bachelor of Science from the same institution. 
 
-## I am looking for potential doctoral students with strong quantitative and computing skills. Please send your CV and other relevant documents to `dayusun [at] iu.edu`.
+### I am looking for potential doctoral students with strong quantitative and computing skills. Please send your CV and other relevant documents to `dayusun [at] iu.edu`.
+
+<p style="margin-bottom:3cm;"> </p>
