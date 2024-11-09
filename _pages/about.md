@@ -4,7 +4,7 @@ title: About
 permalink: /
 subtitle: > 
       孙达宇 <br>
-      <i class="fa fa-envelope" aria-hidden="true"></i> <tt> dayu.sun [at] outlook.com </tt> <tt> dayusun [at] iu.edu </tt>
+      <i class="fa fa-envelope" aria-hidden="true"></i> <tt> dayu.sun [at] outlook.com <i class="fa fa-envelope" aria-hidden="true"></i> </tt> <tt> dayusun [at] iu.edu </tt>
 
 profile:
   align: right
