@@ -4,7 +4,7 @@ title: About
 permalink: /
 subtitle: > 
       孙达宇 <br>
-      <i class="fa fa-envelope" aria-hidden="true"></i> <tt> dayu.sun [at] outlook.com </tt>
+      <i class="fa fa-envelope" aria-hidden="true"></i> <tt> dayu.sun [at] outlook.com </tt> <tt> dayusun [at] iu.edu </tt>
 
 profile:
   align: right
@@ -30,4 +30,4 @@ My research interests include:
 
 I obtained my Ph.D. in statistics from the University of Missouri, advised by [Dr. Jianguo (Tony) Sun](https://sunj.mufaculty.umsystem.edu/). I earned my [M.Phil.](https://en.wikipedia.org/wiki/Master_of_Philosophy) in statistics from The Hong Kong Polytechnic University, supervised by [Dr. Xingqiu Zhao](https://www.polyu.edu.hk/ama/people/academic-staff/prof-zhao-xingqiu/) and Dr. Zhisheng Ye, and a Bachelor of Science from the same institution. 
 
-
+## I am looking for potential doctoral students with strong quantitative and computing skills.
