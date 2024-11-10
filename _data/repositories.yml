@@ -5,3 +5,4 @@ repo_description_lines_max: 10
 github_repos:
   - dayusun/PQTR
   - dayusun/SMKLE
+  - cran/SurvSparse
