@@ -7,7 +7,7 @@ nav: true
 nav_order: 6
 ---
 ## Indiana University
-- 2025S, INOF-H 515 Statistical Learning
+- 2025S, INFO-H 515 Statistical Learning
 
 ## Emory University
 - 2022F, BIOS 590R Seminar in Biostatistics, Co-instructor with Dr. Joshua Lukemire
