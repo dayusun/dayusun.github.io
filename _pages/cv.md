@@ -5,7 +5,7 @@ title: CV
 nav: true
 nav_order: 2
 cv_pdf: SunDayu_CV.pdf
-description: 
+description: My CV
 ---
 
 
