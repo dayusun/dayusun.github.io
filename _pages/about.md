@@ -29,9 +29,9 @@ latest_posts:
 I am currently an assistant professor in the [Department of Biostatistics and Health Data Science](https://medicine.iu.edu/biostatistics) at Indiana University School of Medicine.
 Previously, I was a postdoctoral fellow in the Department of Biostatistics and Bioinformatics at Emory University, under the supervision of [Dr. Amita Manatunga](https://sph.emory.edu/faculty/profile/index.php?FID=amita-manatunga-36), [Dr. Limin Peng](https://sph.emory.edu/faculty/profile/index.php?FID=limin-peng-338) and [Dr. Ying Guo](https://www.yingguo.us/).
 My research interests include:
-- high-dimensional [tensor](https://en.wikipedia.org/wiki/Tensor) data analysis with application to multimodal neuroimaging data,
+- high-dimensional [tensor](https://en.wikipedia.org/wiki/Tensor) data analysis with application to neuroimaging data,
 - joint analysis of intermittently observed longitudinal data and complex time-to-event data, including right-censored and interval-censored survival data, and panel count data,
-- statistical analysis for mental health studies, criminology and clinical trials.
+- statistical analysis for mental health studies, juvenile justice, criminology and clinical trials.
  <!-- (collaborated with [Dr. Lin Liu](https://lindyliu0.wixsite.com/linliu/publications) at [FIU](https://www.fiu.edu/)) and clinical trials. -->
 
 
