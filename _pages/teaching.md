@@ -8,6 +8,7 @@ nav_order: 6
 ---
 ## Indiana University
 - 2025S, INFO-H 515 Statistical Learning
+- 2025 Summer, Advanced Statistics Summer Workshop, Course 3: High-Dimensional Data Analysis
 
 ## Emory University
 - 2022F, BIOS 590R Seminar in Biostatistics, Co-instructor with Dr. Joshua Lukemire
