@@ -8,6 +8,9 @@ nav: true
 nav_order: 2
 ---
 
+Please see [CV]({% link _pages/cv.md %}) for more detailed information on publications and working papers.
+
+
 <!-- _pages/publications.md -->
 
 <!-- Bibsearch Feature -->
