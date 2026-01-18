@@ -3,15 +3,17 @@ layout: about
 title: About
 permalink: /
 subtitle: > 
-      孙达宇 <br>
-      <i class="fa fa-envelope" aria-hidden="true"></i> <tt> dayu.sun [at] outlook.com <i class="fa fa-envelope" aria-hidden="true"></i> </tt> <tt> dayusun [at] iu.edu </tt>
+      <p><b>孙达宇/孫達宇 </b></p>
+      
 
 profile:
   align: right
   image: prof_pic.png
   image_circular: false # crops the image to make it circular
-  address: 
-  
+  more_info: >
+    <p><i class="fa fa-envelope" aria-hidden="true"></i> dayu.sun [at] outlook.com </p>
+    <p><i class="fa fa-envelope" aria-hidden="true"></i> dayusun [at] iu.edu </p>
+
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 
@@ -26,7 +28,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am currently an assistant professor in the [Department of Biostatistics and Health Data Science](https://medicine.iu.edu/biostatistics) at Indiana University School of Medicine.
+I am currently an assistant professor in the [Department of Biostatistics and Health Data Science](https://medicine.iu.edu/biostatistics) at Indiana University School of Medicine and Richard M. Fairbanks School of Public Health.
 Previously, I was a postdoctoral fellow in the Department of Biostatistics and Bioinformatics at Emory University, under the supervision of [Dr. Amita Manatunga](https://sph.emory.edu/faculty/profile/index.php?FID=amita-manatunga-36), [Dr. Limin Peng](https://sph.emory.edu/faculty/profile/index.php?FID=limin-peng-338) and [Dr. Ying Guo](https://www.yingguo.us/).
 My research interests include:
 - high-dimensional [tensor](https://en.wikipedia.org/wiki/Tensor) data analysis with application to neuroimaging data,
@@ -38,6 +40,8 @@ My research interests include:
 
 I obtained my Ph.D. in statistics from the University of Missouri, advised by [Dr. Jianguo (Tony) Sun](https://sunj.mufaculty.umsystem.edu/). I earned my [M.Phil.](https://en.wikipedia.org/wiki/Master_of_Philosophy) in statistics from The Hong Kong Polytechnic University, supervised by [Dr. Xingqiu Zhao](https://www.polyu.edu.hk/ama/people/academic-staff/prof-zhao-xingqiu/) and [Dr. Zhisheng Ye](https://cde.nus.edu.sg/isem/staff/ye-zhisheng/), and a Bachelor of Science from the same institution. 
 
-### I am looking for potential doctoral students with strong quantitative and computing skills. If you are interested, please send your CV and other relevant documents to `dayusun [at] iu.edu`.
+<div class="alert alert-info" role="alert">
+  <h4 class="alert-heading">Prospective Students</h4>
+  <p>I am looking for potential doctoral students for 2026 Fall with strong quantitative and computing skills. If you are interested, please send your CV and other relevant documents to <code>dayusun [at] iu.edu</code>.</p>
+</div>
 
-<p style="margin-bottom:3cm;"> </p>
