@@ -4,6 +4,11 @@
 
 // Typography
 
+body {
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  line-height: 1.75;
+}
+
 p,
 h1,
 h2,
@@ -17,6 +22,23 @@ li,
 span,
 strong {
   color: var(--global-text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Newsreader", Georgia, serif;
+  letter-spacing: 0.01em;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
 }
 
 hr {
@@ -231,6 +253,11 @@ ul.task-list input[type="checkbox"] {
   margin-bottom: 2rem;
   font-size: 0.875rem;
 
+  b,
+  strong {
+    font-weight: 800;
+  }
+
   a {
     color: inherit;
 
@@ -238,6 +265,17 @@ ul.task-list input[type="checkbox"] {
       color: var(--global-theme-color);
       text-decoration: none;
     }
+  }
+}
+
+.desc {
+  b,
+  strong {
+    font-weight: 900 !important;
+  }
+
+  .about-name {
+    font-weight: 900 !important;
   }
 }
 
@@ -285,6 +323,8 @@ ul.task-list input[type="checkbox"] {
 
   .navbar-brand {
     color: var(--global-text-color);
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 800;
   }
 
   .navbar-nav .nav-item .nav-link {
@@ -714,7 +754,7 @@ footer.sticky-bottom {
   }
 
   h2.bibliography {
-    color: var(--global-divider-color);
+    color: var(--global-text-color);
     border-top: 1px solid var(--global-divider-color);
     padding-top: 1rem;
     margin-top: 2rem;
@@ -761,6 +801,11 @@ footer.sticky-bottom {
       }
 
       .author {
+        b,
+        strong {
+          font-weight: 800 !important;
+        }
+
         a {
           border-bottom: 1px dashed var(--global-theme-color);
 

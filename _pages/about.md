@@ -3,7 +3,7 @@ layout: about
 title: About
 permalink: /
 subtitle: > 
-      <p><b>孙达宇/孫達宇 </b></p>
+      <p><span class="about-name">孙达宇/孫達宇</span></p>
       
 
 profile:
