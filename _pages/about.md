@@ -2,9 +2,8 @@
 layout: about
 title: About
 permalink: /
-subtitle: > 
-      <p><span class="about-name">孙达宇/孫達宇</span></p>
-      
+subtitle: >
+  <p><span class="about-name">孙达宇/孫達宇</span></p>
 
 profile:
   align: right
@@ -15,7 +14,7 @@ profile:
     <p><i class="fa fa-envelope" aria-hidden="true"></i> dayusun [at] iu.edu </p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true  # includes social icons at the bottom of the page
+social: true # includes social icons at the bottom of the page
 
 announcements:
   enabled: false # includes a list of news items
@@ -31,11 +30,10 @@ latest_posts:
 I am currently an assistant professor in the [Department of Biostatistics and Health Data Science](https://medicine.iu.edu/biostatistics) at Indiana University School of Medicine and Richard M. Fairbanks School of Public Health.
 Previously, I was a postdoctoral fellow in the Department of Biostatistics and Bioinformatics at Emory University, under the supervision of [Dr. Amita Manatunga](https://sph.emory.edu/faculty/profile/index.php?FID=amita-manatunga-36), [Dr. Limin Peng](https://sph.emory.edu/faculty/profile/index.php?FID=limin-peng-338) and [Dr. Ying Guo](https://www.yingguo.us/).
 My research interests include:
+
 - high-dimensional [tensor](https://en.wikipedia.org/wiki/Tensor) data analysis with application to neuroimaging data,
 - joint analysis of intermittently observed longitudinal data and complex time-to-event data, including right-censored and interval-censored survival data, and panel count data,
 - statistical analysis for mental health studies, juvenile justice, criminology and clinical trials.
- <!-- (collaborated with [Dr. Lin Liu](https://lindyliu0.wixsite.com/linliu/publications) at [FIU](https://www.fiu.edu/)) and clinical trials. -->
+<!-- (collaborated with [Dr. Lin Liu](https://lindyliu0.wixsite.com/linliu/publications) at [FIU](https://www.fiu.edu/)) and clinical trials. -->
 
-
-
-I obtained my Ph.D. in statistics from the University of Missouri, advised by [Dr. Jianguo (Tony) Sun](https://sunj.mufaculty.umsystem.edu/). I earned my [M.Phil.](https://en.wikipedia.org/wiki/Master_of_Philosophy) in statistics from The Hong Kong Polytechnic University, supervised by [Dr. Xingqiu Zhao](https://www.polyu.edu.hk/ama/people/academic-staff/prof-zhao-xingqiu/) and [Dr. Zhisheng Ye](https://cde.nus.edu.sg/isem/staff/ye-zhisheng/), and a Bachelor of Science from the same institution. 
+I obtained my Ph.D. in statistics from the University of Missouri, advised by [Dr. Jianguo (Tony) Sun](https://sunj.mufaculty.umsystem.edu/). I earned my [M.Phil.](https://en.wikipedia.org/wiki/Master_of_Philosophy) in statistics from The Hong Kong Polytechnic University, supervised by [Dr. Xingqiu Zhao](https://www.polyu.edu.hk/ama/people/academic-staff/prof-zhao-xingqiu/) and [Dr. Zhisheng Ye](https://cde.nus.edu.sg/isem/staff/ye-zhisheng/), and a Bachelor of Science from the same institution.

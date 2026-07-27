@@ -48,8 +48,6 @@ nav_order: 3
 
 <p style="margin-bottom:3cm;"> </p>
 
-
-
 ## R packages on CRAN
 
 <div class="publications">
