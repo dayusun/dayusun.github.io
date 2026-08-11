@@ -7,6 +7,7 @@
 # bluesky_url: # your bluesky URL
 # dblp_url: # your DBLP profile url
 # discord_id: # your discord id (18-digit unique numerical identifier)
+cv_pdf: /assets/pdf/SunDayu_CV.pdf # path to your CV PDF file, or an absolute URL
 email: dayu.sun@outlook.com # your email address
 # facebook_id: # your facebook id
 # flickr_id: # your flickr id
