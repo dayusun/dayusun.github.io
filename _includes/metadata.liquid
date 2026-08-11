@@ -52,12 +52,22 @@
 {% endif %}
 
 {% if site.serve_og_meta %}
+  {% comment %}
+    Descriptions come from YAML folded blocks that end in a newline; strip it so it
+    does not land inside a meta content attribute.
+  {% endcomment %}
+  {% if page.description %}
+    {% capture og_description %}{{ page.description | strip_newlines | strip | escape_once }}{% endcapture %}
+  {% else %}
+    {% capture og_description %}{{ site.description | strip_newlines | strip | escape_once }}{% endcapture %}
+  {% endif %}
+
   <!-- OpenGraph -->
   <meta property="og:site_name" content="{{ title }}">
   <meta property="og:type" content="{% if is_blog_post %}article{% else %}website{% endif %}">
   <meta property="og:title" content="{% if page.title %}{{ title }} | {{ page.title }}{% else %}{{ title }}{% endif %}">
   <meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url | remove_first: 'index.html' }}">
-  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:description" content="{{ og_description }}">
   {% if page.og_image or site.og_image %}
     <meta property="og:image" content="{% if page.og_image %}{{ page.og_image }}{% else %}{{ site.og_image }}{% endif %}">
   {% endif %}
@@ -66,7 +76,7 @@
   <!-- Twitter card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ title }}{% endif %}">
-  <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="twitter:description" content="{{ og_description }}">
   {% if page.og_image or site.og_image %}
     <meta name="twitter:image" content="{% if page.og_image %}{{ page.og_image }}{% else %}{{ site.og_image }}{% endif %}">
   {% endif %}
@@ -229,8 +239,16 @@
         },
         "url": "{{ page.url | prepend: site.baseurl | prepend: site.url }}",
         "@type": "{% if is_blog_post %}BlogPosting{% else %}WebSite{% endif %}",
-        "description": "{% if page.description %}{{ page.description }}{% else if site.description %}{{ site.description }}{% endif %}",
-        "headline": "{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}",
+        {% comment %}
+          jsonify (rather than a bare quoted string) is required here: descriptions
+          come from YAML folded blocks that end in a newline, and a raw newline or
+          quote inside a JSON string makes the whole ld+json block invalid, at which
+          point search engines discard it silently.
+        {% endcomment %}
+        {% if page.description %}{% assign meta_description = page.description %}{% else %}{% assign meta_description = site.description %}{% endif %}
+        {% if page.title %}{% assign meta_headline = page.title %}{% else %}{% assign meta_headline = site.title %}{% endif %}
+        "description": {{ meta_description | strip_newlines | strip | jsonify }},
+        "headline": {{ meta_headline | strip_newlines | strip | jsonify }},
         {% if sameaslinks != blank %}
         "sameAs": {{ sameaslinks }},
         {% endif %}
