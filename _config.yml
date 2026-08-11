@@ -166,13 +166,12 @@ disqus_shortname: al-folio # put your disqus shortname
 # External sources.
 # If you have blog posts published on medium.com or other external sources,
 # you can display them in your blog by adding a link to the RSS feed.
-external_sources:
-  - name: medium.com
-    rss_url: https://medium.com/@al-folio/feed
-  - name: Google Blog
-    posts:
-      - url: https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/
-        published_date: 2024-05-14
+# Uncomment and point at your own feed to pull external posts in. Leaving this
+# commented keeps the build offline: _plugins/external-posts.rb fetches every
+# source on every build, so a slow or unreachable feed slows down or breaks CI.
+# external_sources:
+#   - name: medium.com
+#     rss_url: https://medium.com/@your-username/feed
 
 # -----------------------------------------------------------------------------
 # Newsletter
