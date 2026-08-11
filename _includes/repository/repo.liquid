@@ -1,3 +1,9 @@
+{% comment %}
+  Renders a repository card from data collected at build time by
+  `_plugins/github-repo-info.rb`. Previously this pulled an SVG from
+  github-readme-stats.vercel.app, whose public instance is now shut down.
+{% endcomment %}
+
 {% assign repo_url = include.repository | split: '/' %}
 {% if site.data.repositories.github_users contains repo_url.first %}
   {% assign show_owner = false %}
@@ -5,25 +11,19 @@
   {% assign show_owner = true %}
 {% endif %}
 
-{% assign lang = site.lang | split: '-' | first %}
+{% assign info = site.data.github_repo_info[include.repository] %}
 
-{% case lang %}
-  {% when 'pt' %}
-    {% assign lang = site.lang %}
+{% if info.name %}
+  {% assign repo_name = info.name %}
+{% else %}
+  {% assign repo_name = repo_url[1] %}
+{% endif %}
 
-  {% when 'zh' %}
-    {% assign lang_last = site.lang | split: '-' | last %}
-    {% case lang_last %}
-      {% when 'cn', 'sg', 'my', 'hans' %}
-        {% assign lang = 'cn' %}
-      {% when 'tw', 'hk', 'mo', 'hant' %}
-        {% assign lang = 'zh-tw' %}
-    {% endcase %}
-
-    {% comment %} Add a new language using when... if needed {% endcomment %}
-    {% comment %} If you still encounter language-display issues, check the available locale codes in github-readme-stats (different from ISO-639 standard used in your website) {% endcomment %}
-    {% comment %} https://github.com/anuraghazra/github-readme-stats?tab=readme-ov-file#available-locales {% endcomment %}
-{% endcase %}
+{% if info.html_url %}
+  {% assign repo_link = info.html_url %}
+{% else %}
+  {% assign repo_link = include.repository | prepend: 'https://github.com/' %}
+{% endif %}
 
 {% if site.data.repositories.repo_description_lines_max %}
   {% assign max_lines = site.data.repositories.repo_description_lines_max %}
@@ -31,17 +31,80 @@
   {% assign max_lines = 2 %}
 {% endif %}
 
-<div class="repo p-2 text-center">
-  <a href="https://github.com/{{ include.repository }}">
-    <img
-      class="only-light w-100"
-      alt="{{ include.repository }}"
-      src="https://github-readme-stats.vercel.app/api/pin/?username={{ repo_url[0] }}&repo={{ repo_url[1] }}&theme={{ site.repo_theme_light }}&locale={{ lang }}&show_owner={{ show_owner }}&description_lines_count={{ max_lines }}"
-    >
-    <img
-      class="only-dark w-100"
-      alt="{{ include.repository }}"
-      src="https://github-readme-stats.vercel.app/api/pin/?username={{ repo_url[0] }}&repo={{ repo_url[1] }}&theme={{ site.repo_theme_dark }}&locale={{ lang }}&show_owner={{ show_owner }}&description_lines_count={{ max_lines }}"
-    >
+{% comment %} GitHub's own language colours, for the languages this site uses. {% endcomment %}
+{% case info.language %}
+  {% when 'R' %}
+    {% assign lang_color = '#198CE7' %}
+  {% when 'MATLAB' %}
+    {% assign lang_color = '#e16737' %}
+  {% when 'Python' %}
+    {% assign lang_color = '#3572A5' %}
+  {% when 'C++' %}
+    {% assign lang_color = '#f34b7d' %}
+  {% when 'C' %}
+    {% assign lang_color = '#555555' %}
+  {% when 'Fortran' %}
+    {% assign lang_color = '#4d41b1' %}
+  {% when 'Julia' %}
+    {% assign lang_color = '#a270ba' %}
+  {% when 'Jupyter Notebook' %}
+    {% assign lang_color = '#DA5B0B' %}
+  {% when 'Rust' %}
+    {% assign lang_color = '#dea584' %}
+  {% when 'JavaScript' %}
+    {% assign lang_color = '#f1e05a' %}
+  {% when 'TeX' %}
+    {% assign lang_color = '#3D6117' %}
+  {% when 'Shell' %}
+    {% assign lang_color = '#89e051' %}
+  {% when 'HTML' %}
+    {% assign lang_color = '#e34c26' %}
+  {% else %}
+    {% assign lang_color = 'var(--global-text-color-light)' %}
+{% endcase %}
+
+<div class="repo p-2">
+  <a class="repo-card" href="{{ repo_link }}" title="{{ include.repository }} on GitHub">
+    <div class="repo-card-header">
+      <i class="fa-regular fa-folder-open repo-card-icon" aria-hidden="true"></i>
+      <span class="repo-card-title">
+        {% if show_owner %}<span class="repo-card-owner">{{ repo_url[0] }}/</span>{% endif %}<span
+          class="repo-card-name"
+          >{{ repo_name }}</span
+        >
+      </span>
+      {% if info.archived %}
+        <span class="repo-card-badge">archived</span>
+      {% endif %}
+    </div>
+
+    {% if info.description %}
+      <p class="repo-card-description" style="-webkit-line-clamp: {{ max_lines }};">
+        {{ info.description | strip_html | strip }}
+      </p>
+    {% endif %}
+
+    <div class="repo-card-meta">
+      {% if info.language %}
+        <span class="repo-card-meta-item">
+          <span class="repo-card-lang-dot" style="background-color: {{ lang_color }};" aria-hidden="true"></span>
+          {{ info.language }}
+        </span>
+      {% endif %}
+      {% if info.stars and info.stars > 0 %}
+        <span class="repo-card-meta-item">
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          {{ info.stars }}
+          <span class="sr-only">stars</span>
+        </span>
+      {% endif %}
+      {% if info.forks and info.forks > 0 %}
+        <span class="repo-card-meta-item">
+          <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
+          {{ info.forks }}
+          <span class="sr-only">forks</span>
+        </span>
+      {% endif %}
+    </div>
   </a>
 </div>
