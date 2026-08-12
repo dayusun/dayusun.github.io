@@ -70,6 +70,18 @@ samp {
  * pushed heavier in the places it carries meaning.
  * -------------------------------------------------------------------------- */
 
+// Markdown **bold** in ordinary page and post copy. al_folio_core sets
+// `body { font-weight: 300 }` and never gives <b>/<strong> an absolute weight,
+// so they fall back to the browser default `font-weight: bolder`. CSS resolves
+// `bolder` *relative* to the inherited weight, and 300 resolves to 400 rather
+// than 700. IBM Plex Sans is loaded at 400 and up, so body copy also renders at
+// 400: bold text and body text end up on the same weight and **bold** appears
+// to do nothing. An absolute weight is the only fix.
+b,
+strong {
+  font-weight: 700;
+}
+
 .post-description {
   b,
   strong {
