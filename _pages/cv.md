@@ -2,8 +2,9 @@
 layout: page
 permalink: /cv/
 title: CV
+description: curriculum vitae of Dayu Sun, Assistant Professor of Biostatistics and Health Data Science at Indiana University.
 nav: true
-nav_order: 2
+nav_order: 3
 cv_pdf: SunDayu_CV.pdf
 ---
 

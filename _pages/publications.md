@@ -2,8 +2,8 @@
 layout: page
 permalink: /publications/
 title: Publications
-description: selected peer-reviewed publications in reversed chronological order.
-years: (2017..2025)
+description: peer-reviewed publications by Dayu Sun in reversed chronological order.
+years: (2017..2026)
 nav: true
 nav_order: 2
 ---
