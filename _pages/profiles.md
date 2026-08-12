@@ -5,6 +5,7 @@ title: people
 description: members of the lab or group
 nav: false
 nav_order: 7
+published: false # template demo page (Einstein placeholders) — do not publish; safe to delete along with about_einstein.md
 
 profiles:
   # if you want to include more than one profile, just replicate the following block
