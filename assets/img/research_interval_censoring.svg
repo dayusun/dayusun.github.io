@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" role="img" aria-labelledby="ic-title ic-desc">
+  <title id="ic-title">Event time within an interval</title>
+  <desc id="ic-desc">A timeline with two visit marks. The event is known to have occurred somewhere in the shaded band between them, but its exact time is unknown.</desc>
+  <style>
+    .axis { stroke: #7f8c9b; }
+    .bound { stroke: #c1703c; }
+    .visit { fill: #c1703c; }
+    .band { fill: #c1703c; fill-opacity: 0.14; }
+    .mark { fill: #c1703c; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 26px; font-weight: 600; }
+    @media (prefers-color-scheme: dark) {
+      .axis { stroke: #97a4b1; }
+      .bound { stroke: #e0925c; }
+      .visit { fill: #e0925c; }
+      .band { fill: #e0925c; fill-opacity: 0.18; }
+      .mark { fill: #e0925c; }
+    }
+  </style>
+
+  <rect class="band" x="104" y="84" width="92" height="88" />
+  <path class="axis" fill="none" stroke-width="1.6" d="M24 172H278" />
+  <path class="bound" fill="none" stroke-width="1.8" d="M104 78V172M196 78V172" />
+  <g class="visit">
+    <circle cx="104" cy="172" r="5" />
+    <circle cx="196" cy="172" r="5" />
+  </g>
+  <text class="mark" x="150" y="140" text-anchor="middle">?</text>
+</svg>
