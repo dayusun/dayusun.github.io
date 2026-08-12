@@ -46,3 +46,19 @@ Other gates:
 ## Gem version pins
 
 `Gemfile` pins every `al-*` gem to an exact released version in `group :al_folio_plugins`, and `_config.yml` lists the same gems under `plugins:`. Read the current pins from the `Gemfile` rather than trusting any version quoted in prose — including here. To test a gem fix against this site, repoint the `Gemfile` at a sibling checkout (`path:`, `git:`, or `branch:`) and `bundle install`; see [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md#working-on-a-gem-alongside-the-starter). Revert the pin before committing.
+
+## Writing style for site content
+
+**Never use em dashes (`—`) in anything you write.** This applies to site content
+(`_pages`, `_news`, `_projects`, `_teachings`, `_data`), front-matter comments,
+commit messages, and prose you add to docs. Use a period, a colon, a comma, or
+parentheses instead:
+
+- Setting off an explanation: use a period and a new sentence, or a colon.
+- A bold lead-in on a bullet: `**Topic.** Explanation.`, not `**Topic** — explanation.`
+- A parenthetical aside: use commas or parentheses.
+
+En dashes in numeric and date ranges (`2022–23`, `pp. 10–20`) are fine and should
+be kept. Existing em dashes in upstream al-folio text (`README.md`, `docs/`,
+stock `_config.yml` comments) are not yours to churn; leave them unless you are
+already rewriting that line.

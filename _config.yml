@@ -12,7 +12,7 @@ footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
   Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
-keywords: Dayu Sun, biostatistics, survival analysis, tensor regression, neuroimaging statistics, interval-censored data, panel count data, longitudinal data, Indiana University # add your own keywords or leave empty
+keywords: Dayu Sun, biostatistics, survival analysis, tensor regression, neuroimaging statistics, interval-censored data, panel count data, longitudinal data, joint modeling, electronic health records, real-world evidence, causal inference, machine learning, mortality prediction, subgroup trajectory analysis, Alzheimer's disease, criminology, Indiana University, Regenstrief Institute # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 apple_touch_icon: # image name in /assets/img/ (or a rooted path / absolute URL) used for iOS home-screen bookmarks; needs a real 180x180 PNG, since Safari ignores the emoji favicon above. Left empty, iOS falls back to a screenshot of the page.
