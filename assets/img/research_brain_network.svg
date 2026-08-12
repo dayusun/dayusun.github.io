@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" role="img" aria-labelledby="bn-title bn-desc">
+  <title id="bn-title">Brain network</title>
+  <desc id="bn-desc">A lateral brain outline containing nodes connected by edges of varying strength, representing a brain connectivity network.</desc>
+  <style>
+    .outline { stroke: #7f8c9b; }
+    .edge { stroke: #2f7f96; }
+    .node { fill: #2f7f96; }
+    .hub { fill: #c1703c; }
+    @media (prefers-color-scheme: dark) {
+      .outline { stroke: #97a4b1; }
+      .edge { stroke: #58b0c6; }
+      .node { fill: #58b0c6; }
+      .hub { fill: #e0925c; }
+    }
+  </style>
+
+  <path class="outline" fill="none" stroke-width="1.6"
+    d="M62 122C56 82 86 48 132 42C178 36 220 52 242 84C258 108 256 132 242 148C234 157 220 160 209 156C204 170 188 178 172 173C161 186 140 188 127 179C108 186 87 177 79 162C62 155 55 140 62 122Z" />
+  <path class="outline" fill="none" stroke-width="1.1" stroke-opacity="0.55"
+    d="M120 46C126 66 118 82 100 92M168 40C160 62 170 80 190 88M96 128C118 122 138 132 150 150M196 118C214 124 226 118 236 104" />
+
+  <g class="edge" stroke-width="1.1" stroke-opacity="0.55">
+    <path d="M106 96 138 72M138 72 180 70M180 70 214 96M106 96 122 132M138 72 160 116M160 116 200 130M122 132 142 156M160 116 186 158M200 130 214 96M142 156 186 158M106 96 160 116M180 70 200 130M122 132 160 116" />
+  </g>
+  <g class="edge" stroke-width="2.1" stroke-opacity="0.85">
+    <path d="M138 72 160 116M160 116 200 130M106 96 138 72" />
+  </g>
+
+  <g class="node">
+    <circle cx="106" cy="96" r="5" />
+    <circle cx="180" cy="70" r="5" />
+    <circle cx="214" cy="96" r="5" />
+    <circle cx="122" cy="132" r="5" />
+    <circle cx="200" cy="130" r="5" />
+    <circle cx="142" cy="156" r="4.5" />
+    <circle cx="186" cy="158" r="4.5" />
+  </g>
+  <g class="hub">
+    <circle cx="138" cy="72" r="7" />
+    <circle cx="160" cy="116" r="7" />
+  </g>
+</svg>
