@@ -2,54 +2,26 @@
 layout: page
 permalink: /software/
 title: Software
-description: Software projects and R packages developed by the lab.
+description: R packages and research software implementing methods from my papers.
 nav: true
-nav_order: 3
+nav_order: 4
 ---
 
-{% if site.data.repositories.github_users %}
+{% for sw in site.data.repositories.software %}
 
-## GitHub users
+## {{ sw.name }}
 
-<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-  {% for user in site.data.repositories.github_users %}
-    {% include repository/repo_user.liquid username=user %}
-  {% endfor %}
-</div>
+{{ sw.description }}
 
----
-
-{% if site.repo_trophies.enabled %}
-{% for user in site.data.repositories.github_users %}
-{% if site.data.repositories.github_users.size > 1 %}
-
-  <h4>{{ user }}</h4>
-  {% endif %}
-  <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-  {% include repository/repo_trophies.liquid username=user %}
-  </div>
-
----
-
-{% endfor %}
-{% endif %}
-{% endif %}
-
-{% if site.data.repositories.github_repos %}
-
-## GitHub Repositories
+{% if sw.links %}{% for link in sw.links %}{{ link.icon }} [**{{ link.label }}**]({{ link.url }}){% unless forloop.last %} · {% endunless %}{% endfor %}{% endif %}
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-stretch">
-  {% for repo in site.data.repositories.github_repos %}
-    {% include repository/repo.liquid repository=repo %}
-  {% endfor %}
+  {% include repository/repo.liquid repository=sw.repo %}
 </div>
-{% endif %}
 
-<p style="margin-bottom:3cm;"> </p>
+{% unless forloop.last %}
 
-## R packages on CRAN
+---
 
-<div class="publications">
-{% bibliography -f software %}
-</div>
+{% endunless %}
+{% endfor %}

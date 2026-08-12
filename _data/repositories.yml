@@ -2,7 +2,46 @@ github_users:
 
 repo_description_lines_max: 10
 
+# Used by the hidden /repositories/ page.
 github_repos:
+  - dayusun/skmle
   - dayusun/PQTR
-  - dayusun/SMKLE
   - cran/SurvSparse
+
+# Drives the /software/ page: one section per software, each with a
+# description, emoji-labeled links, and its GitHub repo card.
+software:
+  - name: skmle
+    repo: dayusun/skmle
+    description: >-
+      An R package fitting transformed hazards models with sparse, intermittently
+      observed longitudinal covariates by combining kernel weighting with sieve
+      maximum likelihood; the core routines run in C++ via Rcpp. Companion package
+      to the paper _Kernel meets sieve_ (_JASA_, 2025).
+    links:
+      - icon: "🌐"
+        label: Website
+        url: https://www.sundayu.me/skmle/
+      - icon: "📄"
+        label: Paper
+        url: https://doi.org/10.1080/01621459.2025.2476781
+  - name: PQTR
+    repo: dayusun/PQTR
+    description: >-
+      MATLAB implementation of partial quantile tensor regression, a
+      partial-least-squares-type algorithm for quantile regression with tensor
+      predictors, together with the simulation examples from the paper
+      _Partial quantile tensor regression_ (_JASA_, 2024).
+    links:
+      - icon: "📄"
+        label: Paper
+        url: https://doi.org/10.1080/01621459.2024.2422129
+  - name: SurvSparse
+    repo: cran/SurvSparse
+    description: >-
+      An R package on CRAN for survival analysis with sparse longitudinal
+      covariates, to which I contribute.
+    links:
+      - icon: "📦"
+        label: CRAN
+        url: https://cran.r-project.org/package=SurvSparse
