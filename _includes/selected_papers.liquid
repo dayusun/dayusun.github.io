@@ -1,3 +1,12 @@
+{% comment %}
+  Local override of al_folio_core's selected_papers.liquid.
+
+  The gem's version passes `--group_by none`, which renders the selected papers
+  in bibliography file order with no year headings. Dropping it makes the
+  homepage honour scholar.group_by / scholar.group_order from _config.yml
+  (year, descending), so the list is grouped under year headings in reverse
+  chronological order, matching the publications page.
+{% endcomment %}
 <div class="publications">
   {% bibliography --query @*[selected=true]* %}
 </div>

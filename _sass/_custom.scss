@@ -1,0 +1,123 @@
+/*******************************************************************************
+ * Site-local styles for sundayu.me
+ *
+ * This file is not owned by any al-folio plugin, so it cannot drift. The only
+ * shadowed file is assets/css/main.scss, which exists solely to `@use` this one
+ * last, so the declarations below win the cascade against the gem's partials.
+ *
+ * Everything here was carried over from the pre-v1 site, where it lived as edits
+ * inside local copies of _sass/_base.scss and _sass/_themes.scss. Each rule is
+ * annotated with the al_folio_core default it overrides.
+ ******************************************************************************/
+
+@use "variables" as v;
+
+/* -----------------------------------------------------------------------------
+ * Theme colors
+ * al_folio_core ships purple (light) / cyan (dark); this site uses blue / yellow.
+ * Selectors match _themes.scss exactly (`:root` and `html[data-theme="dark"]`)
+ * and win on source order rather than specificity.
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --global-theme-color: #{v.$blue-color};
+  --global-hover-color: #{v.$blue-color};
+}
+
+html[data-theme="dark"] {
+  --global-theme-color: #{v.$yellow-color};
+  --global-hover-color: #{v.$yellow-color};
+  // Lighter secondary text than the gem's $grey-color, for contrast on dark.
+  --global-text-color-light: #{v.$grey-color-light};
+}
+
+/* -----------------------------------------------------------------------------
+ * Typography
+ * Typefaces are loaded via third_party_libraries.google_fonts in _config.yml, so
+ * the two must stay in sync.
+ * -------------------------------------------------------------------------- */
+
+body {
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  line-height: 1.75;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Newsreader", Georgia, serif;
+  letter-spacing: 0.01em;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+}
+
+.navbar .navbar-brand {
+  font-family: "Newsreader", Georgia, serif;
+  font-weight: 800;
+}
+
+/* -----------------------------------------------------------------------------
+ * Weight adjustments
+ * IBM Plex Sans at the gem's default weights reads too light, so bolded text is
+ * pushed heavier in the places it carries meaning.
+ * -------------------------------------------------------------------------- */
+
+.post-description {
+  b,
+  strong {
+    font-weight: 800;
+  }
+}
+
+.desc {
+  b,
+  strong {
+    font-weight: 900 !important;
+  }
+}
+
+// The about page subtitle carries the name in Chinese; it needs a heavier weight
+// than the surrounding description text to read as a name rather than prose.
+// Deliberately not scoped under .desc: al_folio_core renders the subtitle in a
+// <p class="desc">, so any block-level element inside it gets hoisted out of
+// .desc by the HTML parser. Matching on the class alone is nesting-independent.
+.about-name {
+  font-weight: 900 !important;
+}
+
+/* -----------------------------------------------------------------------------
+ * Publications
+ * -------------------------------------------------------------------------- */
+
+.publications {
+  // The year headings that separate bibliography groups. al_folio_core sets
+  // these to --global-divider-color, which is too faint to scan the list by.
+  h2.bibliography {
+    color: var(--global-text-color);
+  }
+
+  ol.bibliography li .author {
+    // al_folio_core marks the site owner's own name with <em> and underlines it
+    // via `border-bottom: 1px solid` (_publications.scss). This site marks it
+    // with weight instead, which stays legible next to the dashed underline the
+    // gem already uses for linked co-authors.
+    > em {
+      border-bottom: none;
+      font-style: normal;
+      font-weight: 800;
+    }
+
+    b,
+    strong {
+      font-weight: 800 !important;
+    }
+  }
+}
