@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-08-14'
+  last_updated: '2026-08-31'
 papers:
   FN4DrmMAAAAJ:0EnyYjriUFMC:
     citations: 2
@@ -54,11 +54,11 @@ papers:
     title: Regression analysis of panel count data with both time-dependent covariates and time-varying effects
     year: '2023'
   FN4DrmMAAAAJ:W7OEmFMy1HYC:
-    citations: 18
+    citations: 20
     title: "Do released prisoners\u2019 perceptions of neighborhood condition affect reentry outcomes?"
     year: '2021'
   FN4DrmMAAAAJ:WF5omc3nYNoC:
-    citations: 13
+    citations: 14
     title: 'When post-incarcerated individuals return to high-risk neighborhoods: Staying out of trouble, social withdrawal, and mental health'
     year: '2022'
   FN4DrmMAAAAJ:Y0pCki6q_DkC:
@@ -94,7 +94,7 @@ papers:
     title: Inference on an adaptive accelerated life test with application to smart-grid data-acquisition-devices
     year: '2017'
   FN4DrmMAAAAJ:eQOLeE2rZwMC:
-    citations: 12
+    citations: 13
     title: Do both petty and serious female offenders have shorter incarcerations than their male counterparts? Testing the universality of chivalrous treatment
     year: '2023'
   FN4DrmMAAAAJ:hqOjcs7Dif8C:
