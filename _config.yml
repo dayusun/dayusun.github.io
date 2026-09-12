@@ -6,6 +6,26 @@ title: blank # the website title (if blank, full name will be used instead)
 first_name: Dayu
 middle_name:
 last_name: Sun
+alt_name: 孙达宇 # name in Chinese, emitted as schema.org alternateName
+job_title: Assistant Professor of Biostatistics and Health Data Science
+affiliations: # emitted as schema.org affiliation on the front page
+  - type: CollegeOrUniversity
+    name: Indiana University School of Medicine
+    department: Department of Biostatistics and Health Data Science
+    url: https://medicine.iu.edu/biostatistics
+  - type: ResearchOrganization
+    name: Regenstrief Institute
+    department: Center on Aging Research
+    url: https://www.regenstrief.org/
+knows_about: # emitted as schema.org knowsAbout on the front page
+  - Semiparametric efficiency theory
+  - Panel count data
+  - Interval-censored data
+  - Asynchronous longitudinal data
+  - Informative observation processes
+  - Empirical process theory
+  - Tensor regression
+  - Electronic health record data
 contact_note:
 description: Assistant Professor of Biostatistics and Health Data Science at Indiana University School of Medicine. Research on tensor data analysis for neuroimaging, joint modeling of longitudinal and time-to-event data, and statistical methods for mental health and clinical trials.
 footer_text: >
