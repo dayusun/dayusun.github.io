@@ -13,11 +13,11 @@ github_repos:
 # Drives the /software/ page: one section per software, each with a
 # description, emoji-labeled links, and its GitHub repo card.
 software:
-  - name: skmle (SMKLE)
+  - name: skmle
     repo: dayusun/skmle
     description: >-
-      R implementation of the **SMKLE**, the sieve maximum kernel-weighted
-      log-likelihood estimator. It fits transformed hazards models when a
+      R implementation of the sieve maximum kernel-weighted log-likelihood
+      estimator (SMKLE). It fits transformed hazards models when a
       time-dependent covariate is observed only intermittently, at times
       unrelated to the event time. Each covariate measurement is weighted by how
       far its observation time sits from the time being modelled, instead of
