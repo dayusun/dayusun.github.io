@@ -5,19 +5,25 @@ repo_description_lines_max: 10
 # Used by the hidden /repositories/ page.
 github_repos:
   - dayusun/skmle
+  - dayusun/tensory
+  - dayusun/pcdreg
   - dayusun/PQTR
   - cran/SurvSparse
 
 # Drives the /software/ page: one section per software, each with a
 # description, emoji-labeled links, and its GitHub repo card.
 software:
-  - name: skmle
+  - name: skmle (SMKLE)
     repo: dayusun/skmle
     description: >-
-      An R package fitting transformed hazards models with sparse, intermittently
-      observed longitudinal covariates by combining kernel weighting with sieve
-      maximum likelihood; the core routines run in C++ via Rcpp. Companion package
-      to the paper _Kernel meets sieve_ (_JASA_, 2025).
+      R implementation of the **SMKLE**, the sieve maximum kernel-weighted
+      log-likelihood estimator. It fits transformed hazards models when a
+      time-dependent covariate is observed only intermittently, at times
+      unrelated to the event time. Each covariate measurement is weighted by how
+      far its observation time sits from the time being modelled, instead of
+      carrying the last value forward, and the baseline is estimated by sieves.
+      Core routines run in C++ via Rcpp. Companion package to the paper
+      _Kernel meets sieve_ (_JASA_, 2025).
     links:
       - icon: "🌐"
         label: Website
@@ -36,6 +42,37 @@ software:
       - icon: "📄"
         label: Paper
         url: https://doi.org/10.1080/01621459.2024.2422129
+  - name: tensory
+    repo: dayusun/tensory
+    description: >-
+      An R package for tensor algebra and for regression with tensor-valued
+      predictors: dense, sparse, symmetric and factorized tensor classes, the CP
+      and Tucker decomposition families, and three regression models relating an
+      array-valued predictor to a scalar outcome. Includes an R implementation of
+      **PQTR** alongside sparse partial generalized tensor regression and tensor
+      envelope partial least squares. Naming and argument semantics track the
+      MATLAB Tensor Toolbox.
+    links:
+      - icon: "🌐"
+        label: Website
+        url: https://www.sundayu.me/tensory/
+      - icon: "📄"
+        label: PQTR paper
+        url: https://doi.org/10.1080/01621459.2024.2422129
+  - name: pcdreg
+    repo: dayusun/pcdreg
+    description: >-
+      An R package for semiparametric regression of panel count data, the setting
+      where recurrent events are counted between intermittent examination times
+      but exact event times are unknown. It fits a proportional rate model by
+      nonparametric maximum likelihood through an EM algorithm, and a means model
+      by estimating equations, both accommodating time-varying covariates.
+      Companion package to the paper _A robust approach for regression analysis of
+      panel count data with time-varying covariates_ (_Bernoulli_, 2024).
+    links:
+      - icon: "📄"
+        label: Paper
+        url: https://doi.org/10.3150/23-BEJ1713
   - name: SurvSparse
     repo: cran/SurvSparse
     description: >-
