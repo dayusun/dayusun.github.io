@@ -1,7 +1,7 @@
 ---
 layout: about
 title: About
-description: Dayu Sun, biostatistician at Indiana University School of Medicine. Survival, longitudinal, tensor and causal methods for EHR, imaging and justice data.
+description: Assistant Professor of Biostatistics and Health Data Science at Indiana University School of Medicine. Survival, longitudinal, tensor and causal methods.
 permalink: /
 subtitle: >
   <p><span class="about-name">孙达宇/孫達宇</span></p>
