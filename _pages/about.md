@@ -1,6 +1,7 @@
 ---
 layout: about
 title: About
+description: Dayu Sun, biostatistician at Indiana University School of Medicine. Semiparametric methods for panel count, interval-censored and asynchronously observed data.
 permalink: /
 subtitle: >
   <p><span class="about-name">孙达宇/孫達宇</span></p>

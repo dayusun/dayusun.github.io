@@ -273,6 +273,7 @@
         "givenName": "{{ site.first_name }}",
         "familyName": "{{ site.last_name }}",
         "url": "{{ site.url }}{{ site.baseurl }}/",
+        "description": {{ page.description | default: site.description | jsonify }},
         {% if site.alt_name %}"alternateName": {{ site.alt_name | jsonify }},{% endif %}
         {% if site.job_title %}"jobTitle": {{ site.job_title | jsonify }},{% endif %}
         {% if site.affiliations %}"affiliation": [{% for aff in site.affiliations %}{ "@type": "{{ aff.type | default: 'Organization' }}", "name": {{ aff.name | jsonify }}{% if aff.department %}, "department": { "@type": "Organization", "name": {{ aff.department | jsonify }} }{% endif %}{% if aff.url %}, "url": {{ aff.url | jsonify }}{% endif %} }{% unless forloop.last %},{% endunless %}{% endfor %}],{% endif %}
