@@ -10,7 +10,7 @@
         "description": "A growing collection of your cool projects.",
         "headline": "projects",
         
-        "sameAs": [null,"https://github.com/dayusun","https://orcid.org/0000-0002-7149-3303","https://scholar.google.com/citations?user=FN4DrmMAAAAJ"],
+        "sameAs": ["https://github.com/dayusun","https://orcid.org/0000-0002-7149-3303","https://scholar.google.com/citations?user=FN4DrmMAAAAJ","https://www.scopus.com/authid/detail.uri?authorId=57203634086","https://www.semanticscholar.org/author/2108246960","https://medicine.iu.edu/faculty/64178/sun-dayu"],
         
         "name": "Dayu Sun",
         "@context": "https://schema.org"
@@ -120,6 +120,27 @@ ninja.data = [{
         section: 'Socials',
         handler: () => {
           window.open("https://scholar.google.com/citations?user=FN4DrmMAAAAJ", "_blank");
+        },
+      },{
+        id: 'social-scopus',
+        title: 'Scopus',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.scopus.com/authid/detail.uri?authorId=57203634086", "_blank");
+        },
+      },{
+        id: 'social-semanticscholar',
+        title: 'Semantic Scholar',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.semanticscholar.org/author/2108246960", "_blank");
+        },
+      },{
+        id: 'social-work',
+        title: 'Work',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://medicine.iu.edu/faculty/64178/sun-dayu", "_blank");
         },
       },{
       id: 'light-theme',
