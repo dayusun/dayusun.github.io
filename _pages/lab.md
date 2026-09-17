@@ -16,7 +16,9 @@ nav_order: 3
   }
 </style>
 
-SUNDAY Lab is the research group of Dayu Sun in the Department of Biostatistics and Health Data Science at Indiana University School of Medicine. Members work on statistical methodology and on the software that implements it.
+SUNDAY Lab develops statistical and data science methodology driven by real biomedical data, in the Department of Biostatistics and Health Data Science at Indiana University School of Medicine. Methods leave here as working code.
+
+The name is Sun, Dayu, run together. We do not meet on Sundays.
 
 ## People
 
