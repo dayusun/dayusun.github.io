@@ -13,6 +13,14 @@ nav_order: 3
     margin-top: 0.25rem;
   }
 
+  #jatte {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 5px #00000029, 0 2px 10px #0000001f;
+  }
+
   .lab-painting figcaption {
     font-size: 0.8rem;
   }
@@ -33,7 +41,15 @@ nav_order: 3
   </div>
   <div class="col-md-4">
     <div class="lab-painting">
-{% include figure.liquid loading="eager" path="assets/img/la_grande_jatte.jpg" class="img-fluid rounded z-depth-1" alt="Georges Seurat, A Sunday on La Grande Jatte, a pointillist park scene built from thousands of separate dots of colour." caption="Georges Seurat, <em>A Sunday on La Grande Jatte</em>, <span style='white-space: nowrap'>1884&ndash;86</span>. Art Institute of Chicago, public domain." %}
+      <figure>
+        <canvas id="jatte" aria-label="Georges Seurat, A Sunday on La Grande Jatte, drawn dot by dot." role="img"></canvas>
+        <noscript>
+          <img src="{{ '/assets/img/la_grande_jatte.jpg' | relative_url }}" class="img-fluid rounded z-depth-1" alt="Georges Seurat, A Sunday on La Grande Jatte.">
+        </noscript>
+        <figcaption class="caption">
+          Georges Seurat, <em>A Sunday on La Grande Jatte</em>, <span style="white-space: nowrap">1884&ndash;86</span>. Art Institute of Chicago, public domain.
+        </figcaption>
+      </figure>
     </div>
   </div>
 </div>
@@ -88,3 +104,104 @@ nav_order: 3
 {% for c in site.data.lab.collaborators %}- [{{ c.name }}]({{ c.url }}), {{ c.affiliation }}
 {% endfor %}
 {% endif %}
+
+<script>
+  // The painting draws itself dot by dot, which is how Seurat made it.
+  // Falls back to a single static paint when the visitor asks for reduced motion.
+  (function () {
+    const canvas = document.getElementById("jatte");
+    if (!canvas || !canvas.getContext) return;
+
+    const ctx = canvas.getContext("2d");
+    const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const src = "{{ '/assets/img/la_grande_jatte.jpg' | relative_url }}";
+    const img = new Image();
+    let dots = [];
+    let step = 6;
+    let raf = null;
+
+    function build() {
+      const cssWidth = canvas.parentElement.clientWidth || 320;
+      const ratio = img.height / img.width;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.style.height = Math.round(cssWidth * ratio) + "px";
+      canvas.width = Math.round(cssWidth * dpr);
+      canvas.height = Math.round(cssWidth * ratio * dpr);
+
+      const sample = document.createElement("canvas");
+      sample.width = canvas.width;
+      sample.height = canvas.height;
+      const sctx = sample.getContext("2d", { willReadFrequently: true });
+      sctx.drawImage(img, 0, 0, sample.width, sample.height);
+      const data = sctx.getImageData(0, 0, sample.width, sample.height).data;
+
+      step = Math.max(3, Math.round(2 * dpr));
+      dots = [];
+      for (let y = step / 2; y < sample.height; y += step) {
+        for (let x = step / 2; x < sample.width; x += step) {
+          const i = (Math.floor(y) * sample.width + Math.floor(x)) * 4;
+          dots.push({
+            x: x,
+            y: y,
+            fromX: Math.random() * sample.width,
+            fromY: Math.random() * sample.height,
+            delay: Math.random() * 0.45,
+            colour: "rgb(" + data[i] + "," + data[i + 1] + "," + data[i + 2] + ")",
+          });
+        }
+      }
+      dots.sort(() => Math.random() - 0.5);
+    }
+
+    function paint(progress) {
+      const r = step * 0.72;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < dots.length; i++) {
+        const d = dots[i];
+        let p = (progress - d.delay) / (1 - d.delay);
+        if (p <= 0) continue;
+        if (p > 1) p = 1;
+        const e = 1 - Math.pow(1 - p, 3);
+        ctx.globalAlpha = Math.min(1, p * 1.6);
+        ctx.fillStyle = d.colour;
+        ctx.beginPath();
+        ctx.arc(d.fromX + (d.x - d.fromX) * e, d.fromY + (d.y - d.fromY) * e, r, 0, 6.2832);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    function run() {
+      if (raf) cancelAnimationFrame(raf);
+      if (still) return paint(1);
+      const started = performance.now();
+      const duration = 2200;
+      (function frame(now) {
+        const progress = Math.min(1, (now - started) / duration);
+        paint(progress);
+        if (progress < 1) raf = requestAnimationFrame(frame);
+      })(started);
+    }
+
+    img.onload = function () {
+      build();
+      const observer = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          run();
+          observer.disconnect();
+        }
+      });
+      observer.observe(canvas);
+      canvas.addEventListener("click", run);
+      let resizeTimer;
+      window.addEventListener("resize", function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          build();
+          paint(1);
+        }, 200);
+      });
+    };
+    img.src = src;
+  })();
+</script>
