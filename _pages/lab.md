@@ -36,7 +36,7 @@ nav_order: 3
 
 <div class="row align-items-center">
   <div class="col-md-8">
-    <p>SUNDAY Lab develops statistical and data science methodology driven by real biomedical data, in the Department of Biostatistics and Health Data Science at Indiana University School of Medicine. Methods leave here as working code.</p>
+    <p>SUNDAY Lab develops statistical and data science methodology driven by real biomedical data, in the Department of Biostatistics and Health Data Science at Indiana University School of Medicine. The methods are released as open-source R and MATLAB packages, listed on the <a href="{% link _pages/software.md %}">Software</a> page.</p>
     <p>The name is Sun, Dayu, run together. We do not meet on Sundays. The other Sunday is Seurat's.</p>
   </div>
   <div class="col-md-4">
