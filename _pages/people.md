@@ -103,9 +103,7 @@ nav_order: 5
   }
 </style>
 
-The group develops statistical and data science methodology driven by real biomedical data. The methods are released as open-source R and MATLAB packages, listed on the [Software]({% link _pages/software.md %}) page.
-
-The group goes by SUNDAY Lab, from Sun, Dayu.
+I supervise doctoral students in the Department of Biostatistics and Health Data Science at Indiana University School of Medicine, and work with the collaborators listed below.
 
 {% assign pi = site.data.people.pi %}
 

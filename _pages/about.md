@@ -53,4 +53,6 @@ I develop statistical methods for addressing challenges from complex data:
 My [GitHub](https://github.com/dayusun) hosts implementations of these methods along with general computational tools; selected packages are described on my [Software](/software/) page.
 --->
 
+I work with doctoral students at IU and with collaborators elsewhere. They are listed on the [People]({% link _pages/people.md %}) page.
+
 Before joining IU, I was a postdoctoral fellow at Emory University with [Dr. Amita Manatunga](https://sph.emory.edu/faculty/profile/index.php?FID=amita-manatunga-36), [Dr. Limin Peng](https://sph.emory.edu/faculty/profile/index.php?FID=limin-peng-338), and [Dr. Ying Guo](https://www.yingguo.us/). I earned my Ph.D. in statistics at the University of Missouri with [Dr. Jianguo (Tony) Sun](https://sunj.mufaculty.umsystem.edu/), and an [M.Phil.](https://en.wikipedia.org/wiki/Master_of_Philosophy) and B.Sc. at The Hong Kong Polytechnic University with [Dr. Xingqiu Zhao](https://www.polyu.edu.hk/ama/people/academic-staff/prof-zhao-xingqiu/) and [Dr. Zhisheng Ye](https://cde.nus.edu.sg/isem/staff/ye-zhisheng/).
