@@ -23,8 +23,8 @@ nav_order: 3
   .lab-band img {
     display: block;
     width: 100%;
-    height: clamp(180px, 25vw, 320px);
-    object-fit: cover;
+    height: auto;
+    aspect-ratio: 1280 / 852;
     cursor: pointer;
   }
 
@@ -33,7 +33,7 @@ nav_order: 3
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 0.3rem 1.5rem;
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     opacity: 0.65;
     margin-bottom: 2.4rem;
   }
@@ -46,14 +46,31 @@ nav_order: 3
 
   h2.lab-label {
     font-family: inherit;
-    font-size: 0.78rem;
+    font-size: 1rem;
     font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     border-top: 1px solid var(--global-divider-color);
     padding-top: 1rem;
     margin-top: 3.2rem;
     margin-bottom: 1.8rem;
+  }
+
+  .lab-pi {
+    display: grid;
+    grid-template-columns: minmax(130px, 210px) 1fr;
+    gap: 1.8rem;
+    align-items: center;
+    margin-bottom: 2.8rem;
+  }
+
+  .lab-pi .lab-name {
+    font-size: 1.5rem;
+    margin-top: 0;
+  }
+
+  .lab-pi .lab-role {
+    font-size: 1.05rem;
   }
 
   .lab-grid {
@@ -69,10 +86,12 @@ nav_order: 3
     }
   }
 
+  .lab-pi figure,
   .lab-grid figure {
     margin: 0;
   }
 
+  .lab-pi img,
   .lab-grid img {
     display: block;
     width: 100%;
@@ -101,12 +120,12 @@ nav_order: 3
   }
 
   .lab-role {
-    font-size: 0.88rem;
+    font-size: 0.95rem;
   }
 
   .lab-note {
-    font-size: 0.82rem;
-    opacity: 0.68;
+    font-size: 0.88rem;
+    opacity: 0.7;
     margin-top: 0.3rem;
   }
 
@@ -137,13 +156,16 @@ SUNDAY Lab develops statistical and data science methodology driven by real biom
 
 {% assign pi = site.data.lab.pi %}
 
-<div class="lab-grid">
+<div class="lab-pi">
+  <div>{% include figure.liquid loading="eager" path="assets/img/prof_pic.png" class="img-fluid" sizes="(min-width: 576px) 210px, 40vw" alt=pi.name %}</div>
   <div>
-    {% include figure.liquid loading="eager" path="assets/img/prof_pic.png" class="img-fluid" sizes="(min-width: 576px) 220px, 45vw" alt=pi.name %}
     <div class="lab-name">{{ pi.name }}</div>
     <div class="lab-role">{{ pi.role }}</div>
-    <div class="lab-note">Assistant Professor of Biostatistics and Health Data Science</div>
+    <div class="lab-note">{{ pi.title }}</div>
   </div>
+</div>
+
+<div class="lab-grid">
   {% for m in site.data.lab.members %}
   <div>
     {% assign member_image = m.image | prepend: 'assets/img/team/' %}
@@ -199,35 +221,21 @@ SUNDAY Lab develops statistical and data science methodology driven by real biom
 
     function build() {
       const w = canvas.clientWidth || 640;
-      const h = canvas.clientHeight || 240;
+      const h = (w * img.height) / img.width;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.round(w * dpr);
       canvas.height = Math.round(h * dpr);
-
-      // Crop the painting to the band the way object-fit: cover would.
-      const target = canvas.width / canvas.height;
-      let sx = 0,
-        sy = 0,
-        sw = img.width,
-        sh = img.width / target;
-      if (sh > img.height) {
-        sh = img.height;
-        sw = img.height * target;
-        sx = (img.width - sw) / 2;
-      } else {
-        sy = (img.height - sh) * 0.45;
-      }
 
       const sample = document.createElement("canvas");
       sample.width = canvas.width;
       sample.height = canvas.height;
       const sctx = sample.getContext("2d", { willReadFrequently: true });
-      sctx.drawImage(img, sx, sy, sw, sh, 0, 0, sample.width, sample.height);
+      sctx.drawImage(img, 0, 0, sample.width, sample.height);
       const data = sctx.getImageData(0, 0, sample.width, sample.height).data;
 
-      // Hold the dot count near 18k whatever the band measures, so a wide
+      // Hold the dot count near 22k whatever the canvas measures, so a wide
       // screen animates as smoothly as a phone.
-      step = Math.max(3, Math.round(Math.sqrt((canvas.width * canvas.height) / 18000)));
+      step = Math.max(3, Math.round(Math.sqrt((canvas.width * canvas.height) / 22000)));
       dots = [];
       for (let y = step / 2; y < sample.height; y += step) {
         for (let x = step / 2; x < sample.width; x += step) {
