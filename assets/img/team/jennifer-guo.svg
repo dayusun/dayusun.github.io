@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 600" role="img" aria-label="Placeholder portrait">
+  <style>
+    .bg { fill: #e9e9ea }
+    .fg { fill: #c9c9cc }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #2a2a2d }
+      .fg { fill: #46464b }
+    }
+  </style>
+  <rect class="bg" width="450" height="600"/>
+  <circle class="fg" cx="225" cy="232" r="82"/>
+  <path class="fg" d="M87 560c0-84 62-142 138-142s138 58 138 142z"/>
+</svg>
