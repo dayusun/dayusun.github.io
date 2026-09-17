@@ -9,6 +9,11 @@ nav_order: 3
 ---
 
 <style>
+  .lab-painting {
+    max-width: 560px;
+    margin: 1.5rem 0 2rem;
+  }
+
   .lab-photo img {
     width: 100%;
     height: auto;
@@ -21,7 +26,11 @@ SUNDAY Lab develops statistical and data science methodology driven by real biom
 
 The name is Sun, Dayu, run together. We do not meet on Sundays.
 
-{% include figure.liquid loading="eager" path="assets/img/la_grande_jatte.jpg" class="img-fluid rounded z-depth-1" alt="Georges Seurat, A Sunday on La Grande Jatte, a pointillist scene of figures beside a river, built from thousands of separate dots of colour." caption="Georges Seurat, <em>A Sunday on La Grande Jatte</em> (1884&ndash;86), Art Institute of Chicago. Thousands of separate dots, one continuous scene: the reconstruction is the eye's work, and ours." %}
+The other Sunday is Seurat's. He spent two years building a continuous afternoon out of thousands of separate dots, which is close to the problem we work on: irregular visits, panel counts and interval-censored events all give you scattered, discrete observations of something that is continuous underneath.
+
+<div class="lab-painting">
+{% include figure.liquid loading="eager" path="assets/img/la_grande_jatte.jpg" class="img-fluid rounded z-depth-1" alt="Georges Seurat, A Sunday on La Grande Jatte, a pointillist park scene built from thousands of separate dots of colour." caption="Georges Seurat, <em>A Sunday on La Grande Jatte</em> (1884&ndash;86). Art Institute of Chicago, public domain." %}
+</div>
 
 ## People
 
