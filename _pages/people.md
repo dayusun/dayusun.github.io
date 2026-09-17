@@ -1,11 +1,11 @@
 ---
 layout: page
-permalink: /lab/
-title: SUNDAY Lab
-description: Sun, Dayu. Statistical methods for incomplete and high-dimensional biomedical data.
+permalink: /people/
+title: People
+description: Doctoral students and collaborators.
 og_image: /assets/img/la_grande_jatte.jpg
 nav: false
-nav_order: 3
+nav_order: 5
 ---
 
 <style>
@@ -44,6 +44,9 @@ nav_order: 3
 
   .lab-pi {
     display: grid;
+    border-top: 1px solid var(--global-divider-color);
+    padding-top: 2rem;
+    margin-top: 2.5rem;
     grid-template-columns: minmax(130px, 210px) 1fr;
     gap: 1.8rem;
     align-items: center;
@@ -125,11 +128,10 @@ nav_order: 3
 <div class="row">
   <div class="col-md-8">
     <p>
-      SUNDAY Lab develops statistical and data science methodology driven by real biomedical data, in the Department of Biostatistics and Health Data
-      Science at Indiana University School of Medicine. The methods are released as open-source R and MATLAB packages, listed on the
-      <a href="{% link _pages/software.md %}">Software</a> page. They are not Sunday drivers: the heavy loops drop into C++.
+      The group develops statistical and data science methodology driven by real biomedical data. The methods are released as open-source R and MATLAB
+      packages, listed on the <a href="{% link _pages/software.md %}">Software</a> page. They are not Sunday drivers: the heavy loops drop into C++.
     </p>
-    <p>SUNDAY Lab is Sun, Dayu, minus the comma. The other Sunday is Seurat's.</p>
+    <p>The group goes by SUNDAY Lab, which is Sun, Dayu, minus the comma. The other Sunday is Seurat's.</p>
   </div>
   <div class="col-md-4">
     <figure class="lab-painting">
@@ -139,13 +141,11 @@ nav_order: 3
       </noscript>
       <figcaption class="caption">
         Georges Seurat, <em>A Sunday on La Grande Jatte</em>, <span style="white-space: nowrap">1884&ndash;86</span>. Art Institute of Chicago, public
-        domain. <a href="#" id="jatte-replay" hidden>Paint it again</a>
+        domain. <span id="jatte-hint" hidden>Move over it to stir the dots.</span> <a href="#" id="jatte-replay" hidden>Paint it again</a>
       </figcaption>
     </figure>
   </div>
 </div>
-
-<h2 id="people" class="lab-label">People</h2>
 
 {% assign pi = site.data.lab.pi %}
 
@@ -157,6 +157,8 @@ nav_order: 3
     <div class="lab-note">{{ pi.title }}</div>
   </div>
 </div>
+
+<h2 id="students" class="lab-label">Students</h2>
 
 <div class="lab-grid">
   {% for m in site.data.lab.members %}
@@ -211,6 +213,7 @@ nav_order: 3
     let dots = [];
     let radius = 3;
     let raf = null;
+    let settled = false;
 
     function build() {
       const w = canvas.clientWidth || 320;
@@ -239,6 +242,8 @@ nav_order: 3
             fromX: Math.random() * sample.width,
             fromY: Math.random() * sample.height,
             delay: Math.random() * 0.45,
+            dx: 0,
+            dy: 0,
             colour: "rgb(" + data[i] + "," + data[i + 1] + "," + data[i + 2] + ")",
           });
         }
@@ -275,18 +280,92 @@ nav_order: 3
       ctx.globalAlpha = 1;
     }
 
+    function drawSettled() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < dots.length; i++) {
+        const d = dots[i];
+        ctx.fillStyle = d.colour;
+        ctx.beginPath();
+        ctx.arc(d.x + d.dx, d.y + d.dy, radius, 0, 6.2832);
+        ctx.fill();
+      }
+    }
+
+    // Moving over the finished painting pushes nearby dots outward; they drift
+    // back into place once the cursor passes. Skipped for reduced motion.
+    function stir(clientX, clientY) {
+      if (!settled || still || !dots.length) return;
+      const rect = canvas.getBoundingClientRect();
+      const mx = (clientX - rect.left) * (canvas.width / rect.width);
+      const my = (clientY - rect.top) * (canvas.height / rect.height);
+      const reach = Math.max(36, canvas.width * 0.09);
+      let stirred = false;
+      for (let i = 0; i < dots.length; i++) {
+        const d = dots[i];
+        const ddx = d.x - mx;
+        const ddy = d.y - my;
+        const dist2 = ddx * ddx + ddy * ddy;
+        if (dist2 < reach * reach) {
+          const dist = Math.sqrt(dist2) || 1;
+          const force = (1 - dist / reach) * 22;
+          d.dx += (ddx / dist) * force;
+          d.dy += (ddy / dist) * force;
+          stirred = true;
+        }
+      }
+      if (stirred) {
+        if (raf) cancelAnimationFrame(raf);
+        settleOffsets();
+      }
+    }
+
+    function settleOffsets() {
+      let maxD = 0;
+      for (let i = 0; i < dots.length; i++) {
+        const d = dots[i];
+        d.dx *= 0.86;
+        d.dy *= 0.86;
+        const m = Math.max(Math.abs(d.dx), Math.abs(d.dy));
+        if (m > maxD) maxD = m;
+      }
+      drawSettled();
+      if (maxD > 0.25) {
+        raf = requestAnimationFrame(settleOffsets);
+      } else {
+        raf = null;
+        for (let i = 0; i < dots.length; i++) {
+          dots[i].dx = 0;
+          dots[i].dy = 0;
+        }
+        drawSettled();
+      }
+    }
+
     // `force` is a click: an explicit request to see it, which outranks the
     // reduced motion preference that governs the automatic play.
     function run(force) {
       if (raf) cancelAnimationFrame(raf);
-      if (still && !force) return paint(1);
+      settled = false;
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].dx = 0;
+        dots[i].dy = 0;
+      }
+      if (still && !force) {
+        settled = true;
+        return paint(1);
+      }
       const started = performance.now();
       const duration = 3200;
       (function frame(now) {
         const progress = Math.min(1, (now - started) / duration);
         paint(progress);
         if (progress < 1) raf = requestAnimationFrame(frame);
-        else raf = null;
+        else {
+          raf = null;
+          settled = true;
+          const hint = document.getElementById("jatte-hint");
+          if (hint) hint.hidden = false;
+        }
       })(started);
     }
 
@@ -294,6 +373,7 @@ nav_order: 3
       build();
       if (still) {
         paint(1); // reduced motion: show the finished painting straight away
+        settled = true;
       } else {
         scatter(); // hold the scattered state so the settling is visible
       }
@@ -308,6 +388,9 @@ nav_order: 3
       observer.observe(canvas);
       canvas.addEventListener("click", function () {
         run(true);
+      });
+      canvas.addEventListener("pointermove", function (event) {
+        stir(event.clientX, event.clientY);
       });
       const replay = document.getElementById("jatte-replay");
       if (replay) {
@@ -326,6 +409,7 @@ nav_order: 3
           lastWidth = canvas.clientWidth;
           build();
           paint(1);
+          settled = true;
         }, 200);
       });
     };

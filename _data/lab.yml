@@ -1,21 +1,15 @@
-# SUNDAY Lab roster, rendered by _pages/lab.md.
+# SUNDAY Lab roster, rendered by _pages/people.md.
 # `image` is optional: drop a file in assets/img/team/ and put the filename here.
-# Keep `works_on` to one line, in plain language.
+# `works_on` is optional: one line, in plain language.
 
 pi:
   name: Dayu Sun
-  image: /assets/img/prof_pic.png
   role: Principal Investigator
   title: Assistant Professor of Biostatistics and Health Data Science, Indiana University School of Medicine
-  works_on: Statistical methods for data that is high-dimensional, irregularly observed, or both.
-  links:
-    - label: Homepage
-      url: /
-    - label: CV
-      url: /assets/pdf/SunDayu_CV.pdf
 
 # From SunDayu_CV.tex (Mentoring > Doctoral Students). All three are co-supervised.
-# TODO(dayu): add a one-line `works_on` for each, and confirm each student is happy to be named.
+# TODO(dayu): confirm each student is happy to be named, and swap the monogram
+# placeholders in assets/img/team/ for real photos.
 members:
   - name: Feier Han
     role: PhD Student
@@ -23,18 +17,14 @@ members:
     cosupervisors:
       - name: Xiaoqing Huang
         url: https://medicine.iu.edu/faculty/68118/huang-xiaoqing
-    works_on:
     image: feier-han.svg
-    links: []
   - name: Jennifer Guo
     role: PhD Student
     joined: 2026
     cosupervisors:
       - name: Xiaoqing Huang
         url: https://medicine.iu.edu/faculty/68118/huang-xiaoqing
-    works_on:
     image: jennifer-guo.svg
-    links: []
   - name: Yingzhe Liu
     role: PhD Student
     joined: 2026
@@ -43,9 +33,7 @@ members:
         url: https://medicine.iu.edu/faculty/68118/huang-xiaoqing
       - name: Yang Li
         url: https://medicine.iu.edu/faculty/48230/li-yang
-    works_on:
     image: yingzhe-liu.svg
-    links: []
 
 # Former members, newest first. The `next` line is the most useful thing on the page
 # for anyone deciding whether to join, so keep it current. Shape:
