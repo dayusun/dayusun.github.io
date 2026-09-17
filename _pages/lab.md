@@ -9,39 +9,25 @@ nav_order: 3
 ---
 
 <style>
-  .lab-band {
-    position: relative;
-    margin: 2rem 0 0.6rem;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow:
-      0 2px 5px #00000029,
-      0 2px 10px #0000001f;
+  .lab-painting {
+    margin: 0;
   }
 
-  .lab-band canvas,
-  .lab-band img {
+  .lab-painting canvas,
+  .lab-painting img {
     display: block;
     width: 100%;
     height: auto;
     aspect-ratio: 1280 / 852;
     cursor: pointer;
+    border-radius: 0.25rem;
+    box-shadow:
+      0 2px 5px #00000029,
+      0 2px 10px #0000001f;
   }
 
-  .lab-credit {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0.3rem 1.5rem;
-    font-size: 0.82rem;
-    opacity: 0.65;
-    margin-bottom: 2.4rem;
-  }
-
-  .lab-lead {
-    font-size: 1.3rem;
-    line-height: 1.55;
-    margin-bottom: 1.2rem;
+  .lab-painting figcaption {
+    font-size: 0.8rem;
   }
 
   h2.lab-label {
@@ -136,21 +122,28 @@ nav_order: 3
   }
 </style>
 
-<div class="lab-band">
-  <canvas id="jatte" role="img" aria-label="Georges Seurat, A Sunday on La Grande Jatte, painted dot by dot."></canvas>
-  <noscript>
-    <img src="{{ '/assets/img/la_grande_jatte.jpg' | relative_url }}" alt="Georges Seurat, A Sunday on La Grande Jatte." />
-  </noscript>
+<div class="row">
+  <div class="col-md-8">
+    <p>
+      SUNDAY Lab develops statistical and data science methodology driven by real biomedical data, in the Department of Biostatistics and Health Data
+      Science at Indiana University School of Medicine. The methods are released as open-source R and MATLAB packages, listed on the
+      <a href="{% link _pages/software.md %}">Software</a> page.
+    </p>
+    <p>SUNDAY Lab is Sun, Dayu, minus the comma. The other Sunday is Seurat's.</p>
+  </div>
+  <div class="col-md-4">
+    <figure class="lab-painting">
+      <canvas id="jatte" role="img" aria-label="Georges Seurat, A Sunday on La Grande Jatte, painted dot by dot."></canvas>
+      <noscript>
+        <img src="{{ '/assets/img/la_grande_jatte.jpg' | relative_url }}" alt="Georges Seurat, A Sunday on La Grande Jatte." />
+      </noscript>
+      <figcaption class="caption">
+        Georges Seurat, <em>A Sunday on La Grande Jatte</em>, <span style="white-space: nowrap">1884&ndash;86</span>. Art Institute of Chicago, public
+        domain. <a href="#" id="jatte-replay" hidden>Paint it again</a>
+      </figcaption>
+    </figure>
+  </div>
 </div>
-<div class="lab-credit">
-  <span>Georges Seurat, <em>A Sunday on La Grande Jatte</em>, <span style="white-space: nowrap">1884&ndash;86</span>. Art Institute of Chicago, public domain.</span>
-  <a href="#" id="jatte-replay" hidden>Paint it again</a>
-</div>
-
-The name is Sun, Dayu, run together. We do not meet on Sundays. The other Sunday is Seurat's.
-{: .lab-lead}
-
-SUNDAY Lab develops statistical and data science methodology driven by real biomedical data, in the Department of Biostatistics and Health Data Science at Indiana University School of Medicine. The methods are released as open-source R and MATLAB packages, listed on the [Software]({% link _pages/software.md %}) page.
 
 <h2 id="people" class="lab-label">People</h2>
 
@@ -216,15 +209,14 @@ SUNDAY Lab develops statistical and data science methodology driven by real biom
     const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const img = new Image();
     let dots = [];
-    let step = 6;
+    let radius = 3;
     let raf = null;
 
     function build() {
-      const w = canvas.clientWidth || 640;
-      const h = (w * img.height) / img.width;
+      const w = canvas.clientWidth || 320;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.round(w * dpr);
-      canvas.height = Math.round(h * dpr);
+      canvas.height = Math.round(((w * img.height) / img.width) * dpr);
 
       const sample = document.createElement("canvas");
       sample.width = canvas.width;
@@ -233,9 +225,10 @@ SUNDAY Lab develops statistical and data science methodology driven by real biom
       sctx.drawImage(img, 0, 0, sample.width, sample.height);
       const data = sctx.getImageData(0, 0, sample.width, sample.height).data;
 
-      // Hold the dot count near 22k whatever the canvas measures, so a wide
+      // Hold the dot count near 18k whatever the canvas measures, so a wide
       // screen animates as smoothly as a phone.
-      step = Math.max(3, Math.round(Math.sqrt((canvas.width * canvas.height) / 22000)));
+      const step = Math.max(3, Math.round(Math.sqrt((canvas.width * canvas.height) / 18000)));
+      radius = step * 0.72;
       dots = [];
       for (let y = step / 2; y < sample.height; y += step) {
         for (let x = step / 2; x < sample.width; x += step) {
@@ -254,7 +247,6 @@ SUNDAY Lab develops statistical and data science methodology driven by real biom
     }
 
     function paint(progress) {
-      const r = step * 0.72;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       for (let i = 0; i < dots.length; i++) {
         const d = dots[i];
@@ -265,20 +257,19 @@ SUNDAY Lab develops statistical and data science methodology driven by real biom
         ctx.globalAlpha = Math.min(1, p * 1.6);
         ctx.fillStyle = d.colour;
         ctx.beginPath();
-        ctx.arc(d.fromX + (d.x - d.fromX) * e, d.fromY + (d.y - d.fromY) * e, r, 0, 6.2832);
+        ctx.arc(d.fromX + (d.x - d.fromX) * e, d.fromY + (d.y - d.fromY) * e, radius, 0, 6.2832);
         ctx.fill();
       }
       ctx.globalAlpha = 1;
     }
 
     function scatter() {
-      const r = step * 0.72;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.globalAlpha = 0.85;
       for (let i = 0; i < dots.length; i++) {
         ctx.fillStyle = dots[i].colour;
         ctx.beginPath();
-        ctx.arc(dots[i].fromX, dots[i].fromY, r, 0, 6.2832);
+        ctx.arc(dots[i].fromX, dots[i].fromY, radius, 0, 6.2832);
         ctx.fill();
       }
       ctx.globalAlpha = 1;
@@ -295,6 +286,7 @@ SUNDAY Lab develops statistical and data science methodology driven by real biom
         const progress = Math.min(1, (now - started) / duration);
         paint(progress);
         if (progress < 1) raf = requestAnimationFrame(frame);
+        else raf = null;
       })(started);
     }
 
