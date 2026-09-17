@@ -24,9 +24,7 @@ nav_order: 3
 
 SUNDAY Lab develops statistical and data science methodology driven by real biomedical data, in the Department of Biostatistics and Health Data Science at Indiana University School of Medicine. Methods leave here as working code.
 
-The name is Sun, Dayu, run together. We do not meet on Sundays.
-
-The other Sunday is Seurat's. He spent two years building a continuous afternoon out of thousands of separate dots, which is close to the problem we work on: irregular visits, panel counts and interval-censored events all give you scattered, discrete observations of something that is continuous underneath.
+The name is Sun, Dayu, run together. We do not meet on Sundays. The other Sunday is Seurat's.
 
 <div class="lab-painting">
 {% include figure.liquid loading="eager" path="assets/img/la_grande_jatte.jpg" class="img-fluid rounded z-depth-1" alt="Georges Seurat, A Sunday on La Grande Jatte, a pointillist park scene built from thousands of separate dots of colour." caption="Georges Seurat, <em>A Sunday on La Grande Jatte</em> (1884&ndash;86). Art Institute of Chicago, public domain." %}
