@@ -9,90 +9,160 @@ nav_order: 3
 ---
 
 <style>
-  .lab-painting {
-    margin-top: 0.25rem;
+  .lab-band {
+    position: relative;
+    margin: 2rem 0 0.6rem;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow:
+      0 2px 5px #00000029,
+      0 2px 10px #0000001f;
   }
 
-  #jatte {
+  .lab-band canvas,
+  .lab-band img {
+    display: block;
     width: 100%;
-    height: auto;
+    height: clamp(180px, 25vw, 320px);
+    object-fit: cover;
     cursor: pointer;
-    border-radius: 0.25rem;
-    box-shadow: 0 2px 5px #00000029, 0 2px 10px #0000001f;
   }
 
-  .lab-painting figcaption {
-    font-size: 0.8rem;
+  .lab-credit {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.3rem 1.5rem;
+    font-size: 0.78rem;
+    opacity: 0.65;
+    margin-bottom: 2.4rem;
   }
 
+  .lab-lead {
+    font-size: 1.3rem;
+    line-height: 1.55;
+    margin-bottom: 1.2rem;
+  }
 
-  .lab-photo img {
+  h2.lab-label {
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-top: 1px solid var(--global-divider-color);
+    padding-top: 1rem;
+    margin-top: 3.2rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .lab-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1.5rem;
+    align-items: start;
+  }
+
+  @media (min-width: 576px) {
+    .lab-grid {
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    }
+  }
+
+  .lab-grid figure {
+    margin: 0;
+  }
+
+  .lab-grid img {
+    display: block;
     width: 100%;
-    height: auto;
     aspect-ratio: 3 / 4;
     object-fit: cover;
+    border-radius: 3px;
+    box-shadow:
+      0 2px 5px #00000029,
+      0 2px 10px #0000001f;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .lab-grid > div:hover img {
+    transform: translateY(-4px);
+    box-shadow:
+      0 8px 16px #0000002e,
+      0 4px 20px #00000024;
+  }
+
+  .lab-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 0.75rem;
+  }
+
+  .lab-role {
+    font-size: 0.88rem;
+  }
+
+  .lab-note {
+    font-size: 0.82rem;
+    opacity: 0.68;
+    margin-top: 0.3rem;
+  }
+
+  .lab-collabs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1.1rem;
   }
 </style>
 
-<div class="row align-items-center">
-  <div class="col-md-8">
-    <p>SUNDAY Lab develops statistical and data science methodology driven by real biomedical data, in the Department of Biostatistics and Health Data Science at Indiana University School of Medicine. The methods are released as open-source R and MATLAB packages, listed on the <a href="{% link _pages/software.md %}">Software</a> page.</p>
-    <p>The name is Sun, Dayu, run together. We do not meet on Sundays. The other Sunday is Seurat's.</p>
-  </div>
-  <div class="col-md-4">
-    <div class="lab-painting">
-      <figure>
-        <canvas id="jatte" aria-label="Georges Seurat, A Sunday on La Grande Jatte, drawn dot by dot." role="img"></canvas>
-        <noscript>
-          <img src="{{ '/assets/img/la_grande_jatte.jpg' | relative_url }}" class="img-fluid rounded z-depth-1" alt="Georges Seurat, A Sunday on La Grande Jatte.">
-        </noscript>
-        <figcaption class="caption">
-          Georges Seurat, <em>A Sunday on La Grande Jatte</em>, <span style="white-space: nowrap">1884&ndash;86</span>. Art Institute of Chicago, public domain.
-          <a href="#" id="jatte-replay" hidden>Paint it again</a>
-        </figcaption>
-      </figure>
-    </div>
-  </div>
+<div class="lab-band">
+  <canvas id="jatte" role="img" aria-label="Georges Seurat, A Sunday on La Grande Jatte, painted dot by dot."></canvas>
+  <noscript>
+    <img src="{{ '/assets/img/la_grande_jatte.jpg' | relative_url }}" alt="Georges Seurat, A Sunday on La Grande Jatte." />
+  </noscript>
+</div>
+<div class="lab-credit">
+  <span>Georges Seurat, <em>A Sunday on La Grande Jatte</em>, <span style="white-space: nowrap">1884&ndash;86</span>. Art Institute of Chicago, public domain.</span>
+  <a href="#" id="jatte-replay" hidden>Paint it again</a>
 </div>
 
-## People
+The name is Sun, Dayu, run together. We do not meet on Sundays. The other Sunday is Seurat's.
+{: .lab-lead}
+
+SUNDAY Lab develops statistical and data science methodology driven by real biomedical data, in the Department of Biostatistics and Health Data Science at Indiana University School of Medicine. The methods are released as open-source R and MATLAB packages, listed on the [Software]({% link _pages/software.md %}) page.
+
+<h2 id="people" class="lab-label">People</h2>
 
 {% assign pi = site.data.lab.pi %}
 
-<div class="row align-items-center mb-4">
-  <div class="col-sm-3 mb-3">
-    <div class="lab-photo">{% include figure.liquid loading="eager" path="assets/img/prof_pic.png" class="img-fluid z-depth-1 rounded" sizes="(min-width: 576px) 25vw, 95vw" alt=pi.name %}</div>
+<div class="lab-grid">
+  <div>
+    {% include figure.liquid loading="eager" path="assets/img/prof_pic.png" class="img-fluid" sizes="(min-width: 576px) 220px, 45vw" alt=pi.name %}
+    <div class="lab-name">{{ pi.name }}</div>
+    <div class="lab-role">{{ pi.role }}</div>
+    <div class="lab-note">Assistant Professor of Biostatistics and Health Data Science</div>
   </div>
-  <div class="col-sm-9">
-    <div style="font-size: 1.15rem; font-weight: 600">{{ pi.name }}</div>
-    <div>{{ pi.role }}</div>
-    <div style="opacity: 0.75">{{ pi.title }}</div>
-  </div>
-</div>
-
-{% for m in site.data.lab.members %}
-
-<hr>
-
-<div class="row align-items-center mb-4">
-  <div class="col-sm-3 mb-3">
+  {% for m in site.data.lab.members %}
+  <div>
     {% assign member_image = m.image | prepend: 'assets/img/team/' %}
-    <div class="lab-photo">{% include figure.liquid loading="lazy" path=member_image class="img-fluid z-depth-1 rounded" sizes="(min-width: 576px) 25vw, 95vw" alt=m.name %}</div>
+    {% include figure.liquid loading="lazy" path=member_image class="img-fluid" sizes="(min-width: 576px) 220px, 45vw" alt=m.name %}
+    <div class="lab-name">{{ m.name }}</div>
+    <div class="lab-role">{{ m.role }}, since {{ m.joined }}</div>
+    {% if m.works_on %}<div class="lab-note">{{ m.works_on }}</div>{% endif %}
+    {% if m.cosupervisors %}
+    <div class="lab-note">
+      With {% for c in m.cosupervisors %}<a href="{{ c.url }}">{{ c.name }}</a>{% unless forloop.last %} and {% endunless %}{% endfor %}
+    </div>
+    {% endif %}
   </div>
-  <div class="col-sm-9">
-    <div style="font-size: 1.15rem; font-weight: 600">{{ m.name }}</div>
-    <div>{{ m.role }}, since {{ m.joined }}</div>
-    <div style="opacity: 0.75">Biostatistics and Health Data Science, IU School of Medicine</div>
-    {% if m.works_on %}<div class="mt-2">{{ m.works_on }}</div>{% endif %}
-    {% if m.cosupervisors %}<div style="opacity: 0.75">Co-supervised with {% for c in m.cosupervisors %}<a href="{{ c.url }}">{{ c.name }}</a>{% unless forloop.last %} and {% endunless %}{% endfor %}</div>{% endif %}
-  </div>
+  {% endfor %}
 </div>
-
-{% endfor %}
 
 {% if site.data.lab.alumni.size > 0 %}
 
-## Alumni
+<h2 id="alumni" class="lab-label">Alumni</h2>
 
 {% for a in site.data.lab.alumni %}- {{ a.name }}, {{ a.role }}, {{ a.years }}.{% if a.next %} Next: {{ a.next }}.{% endif %}
 {% endfor %}
@@ -100,10 +170,17 @@ nav_order: 3
 
 {% if site.data.lab.collaborators.size > 0 %}
 
-## Collaborators
+<h2 id="collaborators" class="lab-label">Collaborators</h2>
 
-{% for c in site.data.lab.collaborators %}- [{{ c.name }}]({{ c.url }}), {{ c.affiliation }}
-{% endfor %}
+<div class="lab-collabs">
+  {% for c in site.data.lab.collaborators %}
+  <div>
+    <div class="lab-role"><a href="{{ c.url }}">{{ c.name }}</a></div>
+    <div class="lab-note">{{ c.affiliation }}</div>
+  </div>
+  {% endfor %}
+</div>
+
 {% endif %}
 
 <script>
@@ -115,28 +192,42 @@ nav_order: 3
 
     const ctx = canvas.getContext("2d");
     const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const src = "{{ '/assets/img/la_grande_jatte.jpg' | relative_url }}";
     const img = new Image();
     let dots = [];
     let step = 6;
     let raf = null;
 
     function build() {
-      const cssWidth = canvas.parentElement.clientWidth || 320;
-      const ratio = img.height / img.width;
+      const w = canvas.clientWidth || 640;
+      const h = canvas.clientHeight || 240;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.style.height = Math.round(cssWidth * ratio) + "px";
-      canvas.width = Math.round(cssWidth * dpr);
-      canvas.height = Math.round(cssWidth * ratio * dpr);
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+
+      // Crop the painting to the band the way object-fit: cover would.
+      const target = canvas.width / canvas.height;
+      let sx = 0,
+        sy = 0,
+        sw = img.width,
+        sh = img.width / target;
+      if (sh > img.height) {
+        sh = img.height;
+        sw = img.height * target;
+        sx = (img.width - sw) / 2;
+      } else {
+        sy = (img.height - sh) * 0.45;
+      }
 
       const sample = document.createElement("canvas");
       sample.width = canvas.width;
       sample.height = canvas.height;
       const sctx = sample.getContext("2d", { willReadFrequently: true });
-      sctx.drawImage(img, 0, 0, sample.width, sample.height);
+      sctx.drawImage(img, sx, sy, sw, sh, 0, 0, sample.width, sample.height);
       const data = sctx.getImageData(0, 0, sample.width, sample.height).data;
 
-      step = Math.max(3, Math.round(2 * dpr));
+      // Hold the dot count near 18k whatever the band measures, so a wide
+      // screen animates as smoothly as a phone.
+      step = Math.max(3, Math.round(Math.sqrt((canvas.width * canvas.height) / 18000)));
       dots = [];
       for (let y = step / 2; y < sample.height; y += step) {
         for (let x = step / 2; x < sample.width; x += step) {
@@ -210,7 +301,7 @@ nav_order: 3
         if (entries[0].isIntersecting) {
           setTimeout(function () {
             run(false);
-          }, 600);
+          }, 500);
           observer.disconnect();
         }
       });
@@ -227,14 +318,17 @@ nav_order: 3
         });
       }
       let resizeTimer;
+      let lastWidth = canvas.clientWidth;
       window.addEventListener("resize", function () {
+        if (canvas.clientWidth === lastWidth) return;
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function () {
+          lastWidth = canvas.clientWidth;
           build();
           paint(1);
         }, 200);
       });
     };
-    img.src = src;
+    img.src = "{{ '/assets/img/la_grande_jatte.jpg' | relative_url }}";
   })();
 </script>
