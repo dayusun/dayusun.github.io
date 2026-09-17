@@ -3,6 +3,7 @@ layout: page
 permalink: /lab/
 title: SUNDAY Lab
 description: Sun, Dayu. Statistical methods for incomplete and high-dimensional biomedical data.
+og_image: /assets/img/la_grande_jatte.jpg
 nav: false
 nav_order: 3
 ---
@@ -19,6 +20,8 @@ nav_order: 3
 SUNDAY Lab develops statistical and data science methodology driven by real biomedical data, in the Department of Biostatistics and Health Data Science at Indiana University School of Medicine. Methods leave here as working code.
 
 The name is Sun, Dayu, run together. We do not meet on Sundays.
+
+{% include figure.liquid loading="eager" path="assets/img/la_grande_jatte.jpg" class="img-fluid rounded z-depth-1" alt="Georges Seurat, A Sunday on La Grande Jatte, a pointillist scene of figures beside a river, built from thousands of separate dots of colour." caption="Georges Seurat, <em>A Sunday on La Grande Jatte</em> (1884&ndash;86), Art Institute of Chicago. Thousands of separate dots, one continuous scene: the reconstruction is the eye's work, and ours." %}
 
 ## People
 
