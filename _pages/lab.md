@@ -16,7 +16,7 @@ nav_order: 3
   }
 </style>
 
-Students in the group are co-advised with clinical informatics and applied statistics faculty at Indiana University, so a project pairs a methodological question with a data problem someone is already waiting on. Methods developed here are expected to ship: each paper from the group has a package or a code release behind it, listed on the [Software]({% link _pages/software.md %}) page.
+SUNDAY Lab is the research group of Dayu Sun in the Department of Biostatistics and Health Data Science at Indiana University School of Medicine. Members work on statistical methodology and on the software that implements it.
 
 ## People
 
