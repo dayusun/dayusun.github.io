@@ -1,14 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 600" role="img" aria-label="Jennifer Guo, photo coming soon">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0.7" y2="1">
-      <stop offset="0" stop-color="#e0f0ea"/>
-      <stop offset="1" stop-color="#a8d3c3"/>
-    </linearGradient>
-  </defs>
-  <rect width="450" height="600" fill="url(#bg)"/>
-  <circle cx="225" cy="255" r="120" fill="#ffffff" fill-opacity="0.5"/>
-  <circle cx="225" cy="255" r="120" fill="none" stroke="#ffffff" stroke-opacity="0.95" stroke-width="2.5"/>
-  <circle cx="225" cy="255" r="111" fill="none" stroke="#2f4a40" stroke-opacity="0.25" stroke-width="1"/>
-  <text x="225" y="288" text-anchor="middle" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="88" font-weight="700" letter-spacing="3" fill="#2f4a40">JG</text>
-  <text x="225" y="468" text-anchor="middle" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" letter-spacing="4" fill="#2f4a40" fill-opacity="0.55">photo soon</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 600" role="img" aria-label="Placeholder portrait">
+  <style>
+    .bg { fill: #e9e9ea }
+    .fg { fill: #c9c9cc }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #2a2a2d }
+      .fg { fill: #46464b }
+    }
+  </style>
+  <rect class="bg" width="450" height="600"/>
+  <circle class="fg" cx="225" cy="232" r="82"/>
+  <path class="fg" d="M87 560c0-84 62-142 138-142s138 58 138 142z"/>
 </svg>

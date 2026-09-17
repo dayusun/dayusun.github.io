@@ -147,7 +147,7 @@ nav_order: 5
   </div>
 </div>
 
-{% assign pi = site.data.lab.pi %}
+{% assign pi = site.data.people.pi %}
 
 <div class="lab-pi">
   <div>{% include figure.liquid loading="eager" path="assets/img/prof_pic.png" class="img-fluid" sizes="(min-width: 576px) 210px, 40vw" alt=pi.name %}</div>
@@ -161,7 +161,7 @@ nav_order: 5
 <h2 id="students" class="lab-label">Students</h2>
 
 <div class="lab-grid">
-  {% for m in site.data.lab.members %}
+  {% for m in site.data.people.members %}
   <div>
     {% assign member_image = m.image | prepend: 'assets/img/team/' %}
     {% include figure.liquid loading="lazy" path=member_image class="img-fluid" sizes="(min-width: 576px) 220px, 45vw" alt=m.name %}
@@ -177,20 +177,20 @@ nav_order: 5
   {% endfor %}
 </div>
 
-{% if site.data.lab.alumni.size > 0 %}
+{% if site.data.people.alumni.size > 0 %}
 
 <h2 id="alumni" class="lab-label">Alumni</h2>
 
-{% for a in site.data.lab.alumni %}- {{ a.name }}, {{ a.role }}, {{ a.years }}.{% if a.next %} Next: {{ a.next }}.{% endif %}
+{% for a in site.data.people.alumni %}- {{ a.name }}, {{ a.role }}, {{ a.years }}.{% if a.next %} Next: {{ a.next }}.{% endif %}
 {% endfor %}
 {% endif %}
 
-{% if site.data.lab.collaborators.size > 0 %}
+{% if site.data.people.collaborators.size > 0 %}
 
 <h2 id="collaborators" class="lab-label">Collaborators</h2>
 
 <div class="lab-collabs">
-  {% for c in site.data.lab.collaborators %}
+  {% for c in site.data.people.collaborators %}
   <div>
     <div class="lab-role"><a href="{{ c.url }}">{{ c.name }}</a></div>
     <div class="lab-note">{{ c.affiliation }}</div>
