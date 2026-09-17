@@ -48,6 +48,7 @@ nav_order: 3
         </noscript>
         <figcaption class="caption">
           Georges Seurat, <em>A Sunday on La Grande Jatte</em>, <span style="white-space: nowrap">1884&ndash;86</span>. Art Institute of Chicago, public domain.
+          <a href="#" id="jatte-replay" hidden>Paint it again</a>
         </figcaption>
       </figure>
     </div>
@@ -171,11 +172,24 @@ nav_order: 3
       ctx.globalAlpha = 1;
     }
 
+    function scatter() {
+      const r = step * 0.72;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.globalAlpha = 0.85;
+      for (let i = 0; i < dots.length; i++) {
+        ctx.fillStyle = dots[i].colour;
+        ctx.beginPath();
+        ctx.arc(dots[i].fromX, dots[i].fromY, r, 0, 6.2832);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    }
+
     function run() {
       if (raf) cancelAnimationFrame(raf);
       if (still) return paint(1);
       const started = performance.now();
-      const duration = 2200;
+      const duration = 3200;
       (function frame(now) {
         const progress = Math.min(1, (now - started) / duration);
         paint(progress);
@@ -185,14 +199,23 @@ nav_order: 3
 
     img.onload = function () {
       build();
+      if (!still) scatter(); // hold the scattered state so the settling is visible
       const observer = new IntersectionObserver(function (entries) {
         if (entries[0].isIntersecting) {
-          run();
+          setTimeout(run, 600);
           observer.disconnect();
         }
       });
       observer.observe(canvas);
       canvas.addEventListener("click", run);
+      const replay = document.getElementById("jatte-replay");
+      if (replay) {
+        replay.hidden = false;
+        replay.addEventListener("click", function (event) {
+          event.preventDefault();
+          run();
+        });
+      }
       let resizeTimer;
       window.addEventListener("resize", function () {
         clearTimeout(resizeTimer);
