@@ -20,6 +20,18 @@ We work on data that is only partly seen. In observational studies and electroni
 
 The lab builds estimators that keep the structure and stay honest about what was never observed: transformed hazards models with intermittently observed covariates, regression for panel counts and interval-censored survival times, and regression with tensor-valued predictors. The questions come from our collaborations in Alzheimer's disease, mental health, juvenile justice, criminology, critical care, and clinical trials.
 
+<div class="row justify-content-sm-center mt-4 mb-2">
+  <div class="col-sm-4 mt-3 mt-md-0">
+    {% include figure.liquid path="assets/img/research_brain_network.svg" class="img-fluid" alt="A lateral brain outline containing nodes joined by edges of varying strength." caption="Brain networks and high-dimensional imaging data." %}
+  </div>
+  <div class="col-sm-4 mt-3 mt-md-0">
+    {% include figure.liquid path="assets/img/research_irregular_visits.svg" class="img-fluid" alt="A dashed covariate trajectory with solid points at a few irregularly spaced observation times." caption="Covariates recorded only at irregular visits." %}
+  </div>
+  <div class="col-sm-4 mt-3 mt-md-0">
+    {% include figure.liquid path="assets/img/research_interval_censoring.svg" class="img-fluid" alt="A timeline with two visit marks and a shaded band between them containing an unknown event time." caption="Event times known only within an interval." %}
+  </div>
+</div>
+
 ## People
 
 {% assign pi = site.data.lab.pi %}
@@ -66,6 +78,12 @@ The lab builds estimators that keep the structure and stay honest about what was
   {% endif %}
 
 {% if site.data.lab.collaborators.size > 0 %}
+
+## Selected work
+
+<div class="publications">
+{% bibliography -f journal -q @*[selected=true] %}
+</div>
 
 ## Collaborators
 
