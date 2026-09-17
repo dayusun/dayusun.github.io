@@ -47,7 +47,12 @@ members:
     image: yingzhe-liu.svg
     links: []
 
-# Former members. Keep `current` up to date: it is the most useful line on the page.
+# Former members, newest first. The `next` line is the most useful thing on the page
+# for anyone deciding whether to join, so keep it current. Shape:
+#   - name: Jane Doe
+#     role: PhD student
+#     years: 2025-2029
+#     next: Assistant Professor, Somewhere University
 alumni: []
 
 # Optional. Leave empty to hide the section entirely.

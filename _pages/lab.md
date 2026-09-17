@@ -16,7 +16,7 @@ nav_order: 3
   }
 </style>
 
-The people behind the work. What the group actually does is on the [home page]({% link _pages/about.md %}); this page is who does it.
+Students in the group are co-advised with clinical informatics and applied statistics faculty at Indiana University, so a project pairs a methodological question with a data problem someone is already waiting on. Methods developed here are expected to ship: each paper from the group has a package or a code release behind it, listed on the [Software]({% link _pages/software.md %}) page.
 
 ## People
 
@@ -57,11 +57,9 @@ The people behind the work. What the group actually does is on the [home page]({
 
 ## Alumni
 
-{% for a in site.data.lab.alumni %}
-
-- **{{ a.name }}.** {{ a.role }}, {{ a.years }}.{% if a.current %} Now {{ a.current }}.{% endif %}
-  {% endfor %}
-  {% endif %}
+{% for a in site.data.lab.alumni %}- {{ a.name }}, {{ a.role }}, {{ a.years }}.{% if a.next %} Next: {{ a.next }}.{% endif %}
+{% endfor %}
+{% endif %}
 
 {% if site.data.lab.collaborators.size > 0 %}
 
