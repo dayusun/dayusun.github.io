@@ -130,6 +130,7 @@ nav_order: 3
       <a href="{% link _pages/software.md %}">Software</a> page.
     </p>
     <p>SUNDAY Lab is Sun, Dayu, minus the comma. The other Sunday is Seurat's.</p>
+    <p>Clinic visits never land on a Sunday. Much of the work here is about what happens between the visits that do.</p>
   </div>
   <div class="col-md-4">
     <figure class="lab-painting">
