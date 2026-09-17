@@ -127,10 +127,9 @@ nav_order: 3
     <p>
       SUNDAY Lab develops statistical and data science methodology driven by real biomedical data, in the Department of Biostatistics and Health Data
       Science at Indiana University School of Medicine. The methods are released as open-source R and MATLAB packages, listed on the
-      <a href="{% link _pages/software.md %}">Software</a> page.
+      <a href="{% link _pages/software.md %}">Software</a> page. They are not Sunday drivers: the heavy loops drop into C++.
     </p>
     <p>SUNDAY Lab is Sun, Dayu, minus the comma. The other Sunday is Seurat's.</p>
-    <p>Clinic visits never land on a Sunday. Much of the work here is about what happens between the visits that do.</p>
   </div>
   <div class="col-md-4">
     <figure class="lab-painting">
