@@ -10,22 +10,13 @@ nav_order: 3
 
 <style>
   .lab-painting {
-    float: right;
-    width: 320px;
-    margin: 0.4rem 0 1rem 1.5rem;
+    margin-top: 0.25rem;
   }
 
   .lab-painting figcaption {
     font-size: 0.8rem;
   }
 
-  @media (max-width: 700px) {
-    .lab-painting {
-      float: none;
-      width: 100%;
-      margin: 1rem 0 1.5rem;
-    }
-  }
 
   .lab-photo img {
     width: 100%;
@@ -35,15 +26,17 @@ nav_order: 3
   }
 </style>
 
-SUNDAY Lab develops statistical and data science methodology driven by real biomedical data, in the Department of Biostatistics and Health Data Science at Indiana University School of Medicine. Methods leave here as working code.
-
-<div class="lab-painting">
+<div class="row align-items-center">
+  <div class="col-md-8">
+    <p>SUNDAY Lab develops statistical and data science methodology driven by real biomedical data, in the Department of Biostatistics and Health Data Science at Indiana University School of Medicine. Methods leave here as working code.</p>
+    <p>The name is Sun, Dayu, run together. We do not meet on Sundays. The other Sunday is Seurat's.</p>
+  </div>
+  <div class="col-md-4">
+    <div class="lab-painting">
 {% include figure.liquid loading="eager" path="assets/img/la_grande_jatte.jpg" class="img-fluid rounded z-depth-1" alt="Georges Seurat, A Sunday on La Grande Jatte, a pointillist park scene built from thousands of separate dots of colour." caption="Georges Seurat, <em>A Sunday on La Grande Jatte</em>, <span style='white-space: nowrap'>1884&ndash;86</span>. Art Institute of Chicago, public domain." %}
+    </div>
+  </div>
 </div>
-
-The name is Sun, Dayu, run together. We do not meet on Sundays. The other Sunday is Seurat's.
-
-<div class="clearfix"></div>
 
 ## People
 
