@@ -185,9 +185,11 @@ nav_order: 3
       ctx.globalAlpha = 1;
     }
 
-    function run() {
+    // `force` is a click: an explicit request to see it, which outranks the
+    // reduced motion preference that governs the automatic play.
+    function run(force) {
       if (raf) cancelAnimationFrame(raf);
-      if (still) return paint(1);
+      if (still && !force) return paint(1);
       const started = performance.now();
       const duration = 3200;
       (function frame(now) {
@@ -199,21 +201,29 @@ nav_order: 3
 
     img.onload = function () {
       build();
-      if (!still) scatter(); // hold the scattered state so the settling is visible
+      if (still) {
+        paint(1); // reduced motion: show the finished painting straight away
+      } else {
+        scatter(); // hold the scattered state so the settling is visible
+      }
       const observer = new IntersectionObserver(function (entries) {
         if (entries[0].isIntersecting) {
-          setTimeout(run, 600);
+          setTimeout(function () {
+            run(false);
+          }, 600);
           observer.disconnect();
         }
       });
       observer.observe(canvas);
-      canvas.addEventListener("click", run);
+      canvas.addEventListener("click", function () {
+        run(true);
+      });
       const replay = document.getElementById("jatte-replay");
       if (replay) {
         replay.hidden = false;
         replay.addEventListener("click", function (event) {
           event.preventDefault();
-          run();
+          run(true);
         });
       }
       let resizeTimer;
