@@ -37,17 +37,23 @@ I develop statistical methods for addressing challenges from complex data:
 - **Collaboration in Alzheimer's disease, mental health, juvenile justice, criminology, critical care, and clinical trials.** These applications are where my methodological questions come from.
 - **Emerging directions.** Economic and financial data, and AI tools for method development and health data science.
 
-<div class="row justify-content-sm-center">
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/research_brain_network.svg" class="img-fluid" alt="A lateral brain outline containing nodes joined by edges of varying strength." caption="Brain networks and high-dimensional imaging data." %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/research_irregular_visits.svg" class="img-fluid" alt="A dashed covariate trajectory with solid points at a few irregularly spaced observation times." caption="Covariates recorded only at irregular visits." %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/research_interval_censoring.svg" class="img-fluid" alt="A timeline with two visit marks and a shaded band between them containing an unknown event time." caption="Event times known only within an interval." %}
-  </div>
+<div class="research-figures">
+  <figure class="fig-block">
+    <div class="fig-stage" id="fig-brain" role="img" aria-label="The 333 Gordon parcels at their real coordinates inside the real ICBM152 brain surface, joined by the estimated connectivity pattern. The model turns slowly and can be dragged."></div>
+    <figcaption class="fig-title">
+      Brain functional connectivity
+      <a class="fig-link" href="https://github.com/dayusun/brainconnvis" target="_blank" rel="noopener">brainconnvis</a>
+    </figcaption>
+  </figure>
+  <figure class="fig-block">
+    <div class="fig-stage" id="fig-dyn" role="img" aria-label="Two linked panels for one patient. A biomarker measured at eight visits, the predicted survival curve drawn forward from a landmark, and the predicted event-time density. All three update each time a measurement arrives, with earlier forecasts left behind as faint traces."></div>
+    <figcaption class="fig-title">Dynamic prediction with longitudinal covariates</figcaption>
+  </figure>
 </div>
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu" crossorigin="anonymous"></script>
+<script defer src="{{ '/assets/js/research-brain-data.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+<script defer src="{{ '/assets/js/research-figures.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 
 <!---
 My [GitHub](https://github.com/dayusun) hosts implementations of these methods along with general computational tools; selected packages are described on my [Software](/software/) page.

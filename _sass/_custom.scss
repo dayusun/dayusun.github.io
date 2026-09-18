@@ -133,3 +133,88 @@ strong {
     }
   }
 }
+
+/* -----------------------------------------------------------------------------
+ * Research figures on the about page
+ * Two WebGL/canvas scenes rendered by assets/js/research-figures.js. The script
+ * reads the --fig-* tokens below, so the two files must stay in sync. They are
+ * aliases onto the al_folio_core theme variables rather than fixed hexes, so the
+ * figures follow the site's own light and dark switch, not the OS setting.
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --fig-ground: var(--global-bg-color);
+  --fig-ink: var(--global-text-color);
+  --fig-muted: var(--global-text-color-light);
+  --fig-faint: var(--global-text-color-light);
+  --fig-rule: var(--global-divider-color);
+}
+
+.research-figures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 1.75rem;
+  margin: 2rem 0 2.5rem;
+
+  .fig-block {
+    flex: 1 1 340px;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .fig-stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 5 / 6;
+    touch-action: pan-y;
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  #fig-brain {
+    cursor: grab;
+
+    &.grabbing {
+      cursor: grabbing;
+    }
+  }
+
+  // click the prediction figure to hold it where it is, click again to resume
+  #fig-dyn {
+    cursor: pointer;
+  }
+
+  .fig-title {
+    margin-top: 0.6rem;
+    font-family: "Newsreader", Georgia, serif;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: var(--global-text-color-light);
+  }
+
+  // the brain is drawn the way my own R package draws it, so the title points there
+  .fig-link {
+    margin-left: 0.35rem;
+    font-family: inherit;
+    font-size: 0.82rem;
+    white-space: nowrap;
+    color: var(--global-theme-color);
+
+    &::before {
+      content: "\2197";
+      margin-right: 0.15rem;
+    }
+  }
+
+  .fig-fallback {
+    padding: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--global-text-color-light);
+    border: 1px dashed var(--global-divider-color);
+    border-radius: 8px;
+  }
+}
