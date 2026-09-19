@@ -411,7 +411,7 @@
   function sizeCanvas() {
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     W = dynEl.clientWidth || 480;
-    H = dynEl.clientHeight || 576;
+    H = dynEl.clientHeight || 480;
     cv.width = Math.round(W * dpr);
     cv.height = Math.round(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
