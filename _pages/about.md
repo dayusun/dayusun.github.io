@@ -42,7 +42,6 @@ I develop statistical methods for addressing challenges from complex data:
     <div class="fig-stage" id="fig-brain" role="img" aria-label="The 333 Gordon parcels at their real coordinates inside the real ICBM152 brain surface, joined by the estimated connectivity pattern. The model turns slowly and can be dragged."></div>
     <figcaption class="fig-title">
       Brain functional connectivity
-      <a class="fig-link" href="https://github.com/dayusun/brainconnvis" target="_blank" rel="noopener">brainconnvis</a>
     </figcaption>
   </figure>
   <figure class="fig-block">

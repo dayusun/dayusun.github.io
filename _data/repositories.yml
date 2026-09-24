@@ -8,7 +8,6 @@ github_repos:
   - dayusun/tensory
   - dayusun/pcdreg
   - dayusun/PQTR
-  - dayusun/brainconnvis
   - cran/SurvSparse
 
 # Drives the /software/ page: one section per software, each with a
@@ -60,19 +59,6 @@ software:
       - icon: "📄"
         label: PQTR paper
         url: https://doi.org/10.1080/01621459.2024.2422129
-  - name: brainconnvis
-    repo: dayusun/brainconnvis
-    description: >-
-      An R package for 3D visualization of brain functional connectivity
-      networks. It renders cortical surface meshes (such as the ICBM152
-      template) together with parcellation atlases (such as the Gordon 333
-      cortical parcellation) at their MNI coordinates, joined by estimated
-      connectivity patterns. Powers the interactive 3D brain connectome
-      figure on the home page.
-    links:
-      - icon: "💻"
-        label: GitHub
-        url: https://github.com/dayusun/brainconnvis
   - name: pcdreg
     repo: dayusun/pcdreg
     description: >-
