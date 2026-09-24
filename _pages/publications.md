@@ -16,6 +16,14 @@ Please see [CV]({% link _pages/cv.md %}) for more detailed information on public
 
 {% include bib_search.liquid %}
 
+## Statistical methodology
+
 <div class="publications">
-{% bibliography -f journal -q !@unpublished %}
+{% bibliography -f journal -q !@unpublished[keywords!~colab] %}
+</div>
+
+## Collaborative work
+
+<div class="publications">
+{% bibliography -f journal -q !@unpublished[keywords~=colab] %}
 </div>
