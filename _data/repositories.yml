@@ -69,7 +69,14 @@ software:
       by estimating equations, both accommodating time-varying covariates.
       Companion package to the paper _A robust approach for regression analysis of
       panel count data with time-varying covariates_ (_Bernoulli_, 2024).
+      Available on CRAN.
     links:
+      - icon: "📦"
+        label: CRAN
+        url: https://cran.r-project.org/package=pcdreg
+      - icon: "🌐"
+        label: Website
+        url: https://www.sundayu.me/pcdreg/
       - icon: "📄"
         label: Paper
         url: https://doi.org/10.3150/23-BEJ1713
